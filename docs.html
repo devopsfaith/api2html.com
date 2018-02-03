@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+
+  <link href="css/custom.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+
+  <title>API2HTML | API to HTML documentation</title>
+</head>
+
+<body>
+
+  <div class="container d-flex flex-column flex-md-row align-items-center p-3 px-md-4">
+    <h5 class="my-0 mr-md-auto font-weight-normal logo">
+      <a href="/">
+        <img src="img/API2HTML.png" title="DevOps Faith logo"> <span class="mx-2">API2HTML</span>
+        <a class="p-2 text-light github-button" href="https://github.com/devopsfaith/api2html" data-icon="octicon-star" data-show-count="true" aria-label="Star devopsfaith/api2html on GitHub">Star</a>
+      </a>
+    </h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-light" href="/#features">Features</a>
+      <a class="p-2 text-light" href="docs.html">Documentation</a>
+      <a class="p-2 text-light" href="https://github.com/devopsfaith/api2html">Github</a>
+    </nav>
+    <a class="btn btn-outline-primary" href="#">Download</a>
+  </div>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="">API to HTML Documentation</h1>
+        <p class="lead">API2HTML takes any data from your API and injects it in <a href="https://mustache.github.io/">mustache</a> templates so you can build websites without coding controllers and models.</p>
+
+        <h2 class="mt-5">Getting Started</h2>
+        <p>The first you need to do is to download or clone the source code of API2HTMLapi2html </p>
+        <p><a class="btn btn-outline-primary" href="https://github.com/devopsfaith/api2html">Download or clone</a></p>
+        <p>Once you have your code, you need to compile it from the terminal. Just <code>cd</code> in the directory you have cloned or downloaded and execute:
+        <pre>make prepare</pre>
+        <p>This command will download all the necessary dependencies, when it finishes the following command will build the binary for your platform:</p>
+        <pre>make prepare</pre>
+        <p>Now you should have the binary <code>api2html</code> in the folder</p>
+
+        <h2>Configure and start the server</h2>
+        <p>The program only needs a configuration file to run. Create a file named <code>config.json</code> with all the configuration inside, for instance:</p>
+        <pre>
+{
+  "robots": true,
+  "sitemap": true,
+  "static_txt_content": [
+    "1234567890.txt"
+  ],
+  "pages":[
+    {
+      "name": "products",
+      "URLPattern": "/products/:tag",
+      "BackendURLPattern": "http://myapi.company.com:8080/tag/:tag",
+      "Template": "tag",
+      "CacheTTL": "3600s",
+      "extra": {"foo":"bar"}
+    },
+    {
+      "name": "product",
+      "URLPattern": "/product/:product",
+      "BackendURLPattern": "http://myapi.company.com:8080/product/:product",
+      "Template": "product",
+      "CacheTTL": "3600s"
+    },
+    {
+      "name": "home",
+      "URLPattern": "/",
+      "BackendURLPattern": "http://myapi.company.com:8080/home",
+      "Template": "home",
+      "CacheTTL": "3600s",
+      "extra": {"is_home":true}
+    }
+  ],
+  "templates": {"home":"home.mustache","product":"product.mustache","tag":"tag.mustache"},
+  "layouts": {"main":"main_layout.mustache"},
+  "extra":{
+    "lang": "en-US",
+    "url_static": "https://cdn.mycompany.com"
+  }
+}
+        </pre>
+
+        <p>Now with the file created start the server</p>
+        <pre>api2html serve -d -c config.json -p 8080</pre>
+        <p>This will start the server in <a href="http://localhost:8080" rel="nofollow"><code>http://localhost:8080</code></a></p>
+      </div>
+
+    </div>
+  </div>
+
+
+
+<footer class="py-4 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md">
+        <p class="small text-muted">Made with <i class="material-icons" style="color:hotpink">favorite_border</i> in Barcelona by <a href="https://twitter.com/devopsfaith">
+          <img height="30px" src="img/devops-faith-logo-inverse.png">
+        </a>
+      </p>
+      <p class="small text-muted">
+        &copy; Copyright <a href="https://devops.faith/">DevOps Faith</a> 2018.
+      </p>
+
+    </div>
+    <div class="col-6 col-md">
+      <h5>Devops Faith</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="http://devops.faith">Website</a></li>
+        <li class="text-muted">Follow us <a href="https://twitter.com/devopsfaith">@devopsfaith</a>
+          <li><a class="text-muted" href="https://medium.com/devops-faith">Blog</a></li>
+
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Help!</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="docs.html">Documentation</a></li>
+          <li><a class="text-muted" href="https://github.com/devopsfaith/api2html" target="_blank">Open Source</a></li>
+          <li><a class="text-muted" href="https://github.com/devopsfaith/api2html/issues">Report a problem</a></li>
+          <li><a class="text-muted" href="mailto:hello@devops.faith">Contact</a></li>
+
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+</footer>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-87994359-2');
+</script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>

@@ -1,67 +1,228 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="css/cover.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
 
-    <title>API2HTML | Convert raw API data into beautiful pages</title>
-  </head>
+  <link href="css/custom.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
 
-    <body class="text-center">
+  <title>API2HTML | Convert raw API data to beautiful HTML pages</title>
+</head>
 
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <div class="pull-right">
+<body>
 
-        </div>
-
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand"><img src="img/API2HTML.png" title="DevOps Faith logo"></h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <!-- Place this tag where you want the button to render. -->
-            <a class="nav-link" href="https://github.com/devopsfaith/api2html">Github</a>
-            <a class="nav-link" href="mailto:hello@devops.faith">Contact</a>
-            <a class="nav-link github-button" href="https://github.com/devopsfaith/api2html" data-icon="octicon-star" data-show-count="true" aria-label="Star devopsfaith/api2html on GitHub">Star</a>
-          </nav>
-        </div>
-      </header>
-
-      <main role="main" class="inner cover">
-        <h1 class="cover-heading">Got an API? The website is on us!</h1>
-        <p class="lead">API2HTML takes any data from your API and injects it in <a href="https://mustache.github.io/">moustache</a> templates so you can build websites without controllers and models.</p>
-
-        <p class="lead">
-          <a href="https://github.com/devopsfaith/api2html" class="btn btn-lg btn-secondary">See how it works</a>
+  <div class="container d-flex flex-column flex-md-row align-items-center p-3 px-md-4">
+    <h5 class="my-0 mr-md-auto font-weight-normal logo">
+      <a href="/">
+        <img src="img/API2HTML.png" title="DevOps Faith logo"> <span class="mx-2">API2HTML</span>
+        <a class="p-2 text-light github-button" href="https://github.com/devopsfaith/api2html" data-icon="octicon-star" data-show-count="true" aria-label="Star devopsfaith/api2html on GitHub">Star</a>
+      </a>
+    </h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-light" href="/#features">Features</a>
+      <a class="p-2 text-light" href="docs.html">Documentation</a>
+      <a class="p-2 text-light" href="https://github.com/devopsfaith/api2html">Github</a>
+    </nav>
+    <a class="btn btn-outline-primary" href="#">Download</a>
+  </div>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-6">
+        <h1 class="mb-5">Got an API? <br />The website is on us!</h1>
+        <p class="lead">API2HTML takes any data from your API and injects it in <a href="https://mustache.github.io/">mustache</a> templates so you can build websites without coding controllers and models.</p>
+        <p class="lead mt-5">
+          <a href="docs.html" class="btn btn-lg btn-primary">Start building sites</a>
         </p>
-      </main>
-
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-
-          <p>Another open source tool by <a href="http://devops.faith"><img src="img/devops-faith-logo-inverse.png"></a>
-            <p>&copy; Copyright <a href="https://devops.faith/">DevOps Faith</a> 2018. Follow us <a href="https://twitter.com/devopsfaith">@devopsfaith</a></p>
+      </div>
+      <div class="col-6">
+        <div class="hero">
+          <img class="img-fluid d-block mx-auto" src="img/hero.png">
         </div>
-      </footer>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="py-5 text-center bg-secondary my-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-light">Convert raw API data into beautiful websites</h1>
+          <p class="text-light">API2HTML allows you to design websites thinking only in the view. Define in a <code class="bg-primary">configuration.json</code> all the URLs that you want to show and what API call it is going to do. All API interaction will be handled by API2HTML leaving you all the data in the {{ data }} variable.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mx-auto mt-3">
+          <button type="button" class="btn btn-lg btn-block">Read the docs</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="py-5" id="features">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">Benefits and features</h1>
+          <p class="lead">
+            Design static and dynamic websites by just writing the templates.
+            <br>Interact with your API data without coding a single line.<br>
+          100% open source</p>
+          <div class="row text-left mt-5">
+            <div class="col-md-4 my-3">
+              <div class="row mb-3">
+                <div class="text-center col-2"><i class="material-icons">important_devices</i></div>
+                <div class="align-self-center col-10">
+                  <h5 class="text-secondary">MVP builder</h5>
+                </div>
+              </div>
+              <p>If you have a set of data origins and have and idea you'd like to build, make your <strong>Minimum Viable Product</strong> in no time and quickly prove your hypothesis.</p>
+            </div>
+
+            <div class="col-md-4 my-3">
+              <div class="row mb-3">
+                <div class="text-center col-2"><i class="material-icons">translate</i></div>
+                <div class="align-self-center col-10">
+                  <h5 class="text-secondary">Multi-language</h5>
+                </div>
+              </div>
+              <p>API2HTML allows you to reuse the same templates for different languages. Need to have the site in 33 different languages? No problem! Write the translations and you are good to go.</p>
+            </div>
+            <div class="col-md-4 my-3">
+              <div class="row mb-3">
+                <div class="text-center col-2"><i class="material-icons">code</i></div>
+                <div class="align-self-center col-10">
+                  <h5 class="text-secondary">Static and dynamic content</h5>
+                </div>
+              </div>
+              <p>Serve static content that has no interaction with APIs or rich dynamic content that feeds from your backend.</p>
+            </div>
+            <div class="col-md-4 my-3">
+              <div class="row mb-3">
+                <div class="text-center col-2"><i class="material-icons">language</i></div>
+                <div class="align-self-center col-10">
+                  <h5 class="text-secondary">Multi-site</h5>
+                </div>
+              </div>
+              <p>With the same project and thanks to the <code>generator</code> you will be able to build multiple sites.</p>
+            </div>
+            <div class="col-md-4 my-3">
+              <div class="row mb-3">
+                <div class="text-center col-2"><i class="material-icons">pregnant_woman</i></div>
+                <div class="align-self-center col-10">
+                  <h5 class="text-secondary">Configuration inheritance</h5>
+                </div>
+              </div>
+              <p>Let children sites carry with all the configuration of its parent. Redefine only the differences and inherit all the attributes</p>
+            </div>
+            <div class="col-md-4 my-3">
+              <div class="row mb-3">
+                <div class="text-center col-2"><i class="material-icons">cached</i></div>
+                <div class="align-self-center col-10">
+                  <h5 class="text-secondary">Caching</h5>
+                </div>
+              </div>
+              <p>When API2HTML queries your API it will automatically cache the responses for the duration that the API has specified in the <code>Cache-Control</code> headers.</p>
+            </div>
+            <div class="col-md-4 my-3">
+              <div class="row mb-3">
+                <div class="text-center col-2"><i class="material-icons">motorcycle</i></div>
+                <div class="align-self-center col-10">
+                  <h5 class="text-secondary">Blazing fast</h5>
+                </div>
+              </div>
+              <p>API2HTML is well coded in Go offering an incredible performance. But if that wasn't enough, when you start the server all your templates are internally pre-compiled so it won't be necessary to process them ever again.</p>
+            </div>
+            <div class="col-md-4 my-3">
+              <div class="row mb-3">
+                <div class="text-center col-2"><i class="material-icons">memory</i></div>
+                <div class="align-self-center col-10">
+                  <h5 class="text-secondary">Small footprint</h5>
+                </div>
+              </div>
+              <p>Recover that old machine or server that you were about to throw it away. API2HTML uses under 15MB of RAM to host a page and the CPU is almost inactive. </p>
+            </div>
+            <div class="col-md-4 my-3">
+              <div class="row mb-3">
+                <div class="text-center col-2"><i class="material-icons">reorder</i></div>
+                <div class="align-self-center col-10">
+                  <h5 class="text-secondary">Multiple APIs? Verbosity?</h5>
+                </div>
+              </div>
+              <p>Put a <a href="http://www.krakend.io" title="Ultra-high performance API Gateway">KrakenD API Gateway</a> in front of API2HTML to make it feed from multiple APIs and to receive only the data you are interested in.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+   <div class="row">
+    <div class="col-md-4 mx-auto">
+      <a href="docs.html" class="btn btn-lg btn-block btn-primary">Download now!</a>
+    </div>
+  </div>
+</div>
+
+<footer class="py-4 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md">
+        <p class="small text-muted">Made with <i class="material-icons" style="color:hotpink">favorite_border</i> in Barcelona by <a href="https://twitter.com/devopsfaith">
+          <img height="30px" src="img/devops-faith-logo-inverse.png">
+        </a>
+      </p>
+      <p class="small text-muted">
+        &copy; Copyright <a href="https://devops.faith/">DevOps Faith</a> 2018.
+      </p>
+
+    </div>
+    <div class="col-6 col-md">
+      <h5>Devops Faith</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="http://devops.faith">Website</a></li>
+        <li class="text-muted">Follow us <a href="https://twitter.com/devopsfaith">@devopsfaith</a>
+          <li><a class="text-muted" href="https://medium.com/devops-faith">Blog</a></li>
+
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Help!</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="docs.html">Documentation</a></li>
+          <li><a class="text-muted" href="https://github.com/devopsfaith/api2html" target="_blank">Open Source</a></li>
+          <li><a class="text-muted" href="https://github.com/devopsfaith/api2html/issues">Report a problem</a></li>
+          <li><a class="text-muted" href="mailto:hello@devops.faith">Contact</a></li>
+
+        </ul>
+      </div>
     </div>
 
 
-       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  </div>
+</footer>
+</div>
 
-      gtag('config', 'UA-87994359-2');
-    </script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-87994359-2');
+</script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
 </html>
