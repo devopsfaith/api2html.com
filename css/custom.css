@@ -6154,6 +6154,14 @@ body > * {
   font-size: 3rem;
 }
 
+#TableOfContents ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
 .logo a {
   text-decoration: none;
 }

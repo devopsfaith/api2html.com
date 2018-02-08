@@ -1,0 +1,236 @@
+
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.33" />
+  <title> Generating multiple sites </title>
+  
+  <meta name="description" content="An utility to make multiple sites "> 
+  
+  
+  
+  
+  
+
+  
+
+  <meta name="author" content="Devops Faith">
+
+
+  <meta property="og:title" content="Generating multiple sites" />
+<meta property="og:description" content="An utility to make multiple sites " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/generating-multiple-sites/" />
+
+
+
+<meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00"/>
+
+<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  <link rel="canonical" href="/docs/generating-multiple-sites/">  
+  <link href="/css/custom.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+   <div class="container d-flex flex-column flex-md-row align-items-center p-3 px-md-4">
+  <h5 class="my-0 mr-md-auto font-weight-normal logo">
+    <a href="/">
+      <img src="/img/API2HTML.png" title="DevOps Faith logo"> <span class="mx-2">API2HTML</span>
+      <a class="p-2 text-light github-button" href="https://github.com/devopsfaith/api2html" data-icon="octicon-star" data-show-count="true" aria-label="Star devopsfaith/api2html on GitHub">Star</a>
+    </a>
+  </h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    
+    
+    <a class="p-2 text-light" href="/docs/" >
+      Documentation
+    </a>
+    
+    <a class="p-2 text-light" href="/#features" >
+      Features
+    </a>
+    
+  </nav>
+  <a class="btn btn-outline-primary" href="https://github.com/devopsfaith/api2html">Clone</a>
+</div>
+ 
+  <div class="container mt-4">
+    
+
+    
+    
+    <h1>Generating multiple sites</h1>
+    <p class="lead mb-4">While the mustache templates are rendered in execution time, the generator templates are executed before the server starts and produces all the needed versions of the mustache templates. </p>
+
+    <p>Let&rsquo;s see a typical directory structure the generator can use:</p>
+
+<pre><code>your_project/
+├── config
+│   ├── ca-ES
+│   │   ├── config.ini
+│   │   └── routes.ini
+│   └── global
+│       ├── config.ini
+│       └── routes.ini
+├── i18n
+│   ├── ca-ES.ini
+│   ├── en-US.ini
+│   └── zh-CN.ini
+└── sources
+    ├── ca-ES
+    │   └── static
+    │       ├── 1234567890.txt
+    │       └── 505
+    └── global
+        ├── Dockerfile
+        ├── config.json
+        ├── static
+        │   ├── 404
+        │   ├── robots.txt
+        │   └── sitemap.xml
+        └── tmpl
+            └── home.mustache
+</code></pre>
+
+<ul>
+<li>The <code>config</code> directory stores all the data that will be injected in the meta-templates.</li>
+<li>The <code>i18n</code> directory stores all the translations</li>
+<li>The <code>sources</code> directory contains all the meta-templates. Notice that there are .txt files, Dockerfile or .json files. These are meta-templates too. (Yes, you can create Dockerfiles by using variables)</li>
+</ul>
+
+<p>Notice that there is a <code>global</code> folder inside <code>sources</code> and <code>config</code>. These files will be present in any language but if a folder with an ISO code declares the same file it will be overwritten, if it is new, it will be added to the language only.</p>
+
+<p>After running the generator the following output will be created:</p>
+
+<pre><code>your_project/
+...
+└── output
+   ├── ca-ES
+   │   ├── Dockerfile
+   │   ├── config.json
+   │   ├── static
+   │   │   ├── 1234567890.txt
+   │   │   ├── 404
+   │   │   ├── 505
+   │   │   ├── robots.txt
+   │   │   └── sitemap.xml
+   │   └── tmpl
+   │       └── home.mustache
+   ├── en-US
+   │   ├── Dockerfile
+   │   ├── config.json
+   │   ├── static
+   │   │   ├── 404
+   │   │   ├── robots.txt
+   │   │   └── sitemap.xml
+   │   └── tmpl
+   │       └── home.mustache
+   └── zh-CN
+       ├── Dockerfile
+       ├── config.json
+       ├── static
+       │   ├── 404
+       │   ├── robots.txt
+       │   └── sitemap.xml
+       └── tmpl
+           └── home.mustache
+</code></pre>
+
+<p>Now all this files are final templates (and not meta-templates). Notice how the <code>505</code> and <code>1234567890.txt</code> files exist only in the ISO <code>ca-ES</code>.</p>
+
+
+    
+
+    <h2>Next steps</h2>
+    
+    <p>
+        Go back to <a href="/docs/generator/">Multi site generator</a>
+    </p>
+    
+    
+    <p>
+        Continue to <a href="/docs/running-the-generator/">Generating multiple sites</a>
+    </p>
+    
+
+
+
+  </div>
+  <footer class="py-4 mt-5">
+    
+      <div class="container">
+    <div class="row">
+      <div class="col-12 col-md">
+        <p class="small text-muted">Made with <i class="material-icons" style="color:hotpink">favorite_border</i> in Barcelona by <a href="https://twitter.com/devopsfaith">
+          <img height="30px" src="/img/devops-faith-logo-inverse.png">
+        </a>
+      </p>
+      <p class="small text-muted">
+        &copy; Copyright <a href="https://devops.faith/">DevOps Faith</a> 2018.
+      </p>
+    </div>
+
+    <div class="col-6 col-md">
+      <h5>Devops Faith</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="http://devops.faith">Website</a></li>
+        <li class="text-muted">Follow us <a href="https://twitter.com/devopsfaith">@devopsfaith</a>
+          <li><a class="text-muted" href="https://medium.com/devops-faith">Blog</a></li>
+
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Help!</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="/docs/">Documentation</a></li>
+          <li><a class="text-muted" href="https://github.com/devopsfaith/api2html" target="_blank">Open Source</a></li>
+          <li><a class="text-muted" href="https://github.com/devopsfaith/api2html/issues">Report a problem</a></li>
+          <li><a class="text-muted" href="mailto:hello@devops.faith">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87994359-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>

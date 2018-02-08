@@ -1,0 +1,226 @@
+
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.33" />
+  <title> Getting Started </title>
+  
+  <meta name="description" content="Start using API2HTML"> 
+  
+  
+  
+  
+  
+
+  
+
+  <meta name="author" content="Devops Faith">
+
+
+  <meta property="og:title" content="Getting Started" />
+<meta property="og:description" content="Start using API2HTML" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/getting-started/" />
+
+
+
+<meta property="article:published_time" content="2018-02-04T16:43:08&#43;01:00"/>
+
+<meta property="article:modified_time" content="2018-02-04T16:43:08&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  <link rel="canonical" href="/docs/getting-started/">  
+  <link href="/css/custom.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+   <div class="container d-flex flex-column flex-md-row align-items-center p-3 px-md-4">
+  <h5 class="my-0 mr-md-auto font-weight-normal logo">
+    <a href="/">
+      <img src="/img/API2HTML.png" title="DevOps Faith logo"> <span class="mx-2">API2HTML</span>
+      <a class="p-2 text-light github-button" href="https://github.com/devopsfaith/api2html" data-icon="octicon-star" data-show-count="true" aria-label="Star devopsfaith/api2html on GitHub">Star</a>
+    </a>
+  </h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    
+    
+    <a class="p-2 text-light" href="/docs/" >
+      Documentation
+    </a>
+    
+    <a class="p-2 text-light" href="/#features" >
+      Features
+    </a>
+    
+  </nav>
+  <a class="btn btn-outline-primary" href="https://github.com/devopsfaith/api2html">Clone</a>
+</div>
+ 
+  <div class="container mt-4">
+    
+
+    
+    
+    <div class="card mb-4 mx-4 float-md-right bg-dark">
+        <div class="card-header bg-primary">
+          <h5 class="mb-0 text-center">Table of Contents</h5>
+        </div>
+        <div class="card-body">
+          <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#download">Download</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#verify-the-installation">Verify the installation</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+    </div>
+    
+    <h1>Getting Started</h1>
+    <p class="lead mb-4">API2HTML takes any data from your API and injects it in <a href="https://mustache.github.io/">mustache</a> templates so you can build websites without coding controllers and models. See how easy is to create your first website.. </p>
+
+    
+
+<h2 id="download">Download</h2>
+
+<p>The first thing you need to do is to download or clone the source code of API2HTML.</p>
+
+<p><a class="btn btn-outline-primary" href="https://github.com/devopsfaith/api2html">Download or clone</a></p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Once you have the source code, you need to compile it from the terminal. Just <code>cd</code> the directory you have cloned or downloaded and execute:</p>
+
+<pre><code>make prepare
+</code></pre>
+
+<p>The previous command will download all the necessary dependencies. When it finishes the following command will build the binary for your platform:</p>
+
+<pre><code>make
+</code></pre>
+
+<p>Now you should have the binary <code>api2html</code> in the same folder.</p>
+
+<p>You can move this file to <code>/usr/local/bin</code> or <code>$GOPATH/bin</code> or add it in any other place that is included in your <code>$PATH</code>.</p>
+
+<pre><code>mv api2html /usr/local/bin
+</code></pre>
+
+<p><strong>You can delete everything else you have downloaded</strong> as it was only needed to generate the binary. You might want to keep the <code>examples</code> folder for latter reference.</p>
+
+<h2 id="verify-the-installation">Verify the installation</h2>
+
+<p>If your installation is correct you should be able to execute the binary and see the help:</p>
+
+<pre><code>$ api2html
+
+
+Usage:
+  api2html [command]
+
+Available Commands:
+  generate    Generate the final api2html templates.
+  help        Help about any command
+  serve       Run the api2html server.
+
+Flags:
+  -h, --help   help for api2html
+
+Use &quot;api2html [command] --help&quot; for more information about a command.
+</code></pre>
+
+<p>If you get an error that <code>api2html</code> could not be found, check that your <code>PATH</code> variable contains the folder where the binary is.</p>
+
+
+    
+
+    <h2>Next steps</h2>
+    
+    
+    <p>
+        Continue to <a href="/docs/running-the-server/">Running the API2HTML server</a>
+    </p>
+    
+
+
+
+  </div>
+  <footer class="py-4 mt-5">
+    
+      <div class="container">
+    <div class="row">
+      <div class="col-12 col-md">
+        <p class="small text-muted">Made with <i class="material-icons" style="color:hotpink">favorite_border</i> in Barcelona by <a href="https://twitter.com/devopsfaith">
+          <img height="30px" src="/img/devops-faith-logo-inverse.png">
+        </a>
+      </p>
+      <p class="small text-muted">
+        &copy; Copyright <a href="https://devops.faith/">DevOps Faith</a> 2018.
+      </p>
+    </div>
+
+    <div class="col-6 col-md">
+      <h5>Devops Faith</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="http://devops.faith">Website</a></li>
+        <li class="text-muted">Follow us <a href="https://twitter.com/devopsfaith">@devopsfaith</a>
+          <li><a class="text-muted" href="https://medium.com/devops-faith">Blog</a></li>
+
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Help!</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="/docs/">Documentation</a></li>
+          <li><a class="text-muted" href="https://github.com/devopsfaith/api2html" target="_blank">Open Source</a></li>
+          <li><a class="text-muted" href="https://github.com/devopsfaith/api2html/issues">Report a problem</a></li>
+          <li><a class="text-muted" href="mailto:hello@devops.faith">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87994359-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>

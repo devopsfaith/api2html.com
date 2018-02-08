@@ -37,16 +37,20 @@
         <p class="lead">API2HTML takes any data from your API and injects it in <a href="https://mustache.github.io/">mustache</a> templates so you can build websites without coding controllers and models.</p>
 
         <h2 class="mt-5">Getting Started</h2>
-        <p>The first you need to do is to download or clone the source code of API2HTMLapi2html </p>
+        <p>The first thing you need to do is to download or clone the source code of API2HTML.</p>
         <p><a class="btn btn-outline-primary" href="https://github.com/devopsfaith/api2html">Download or clone</a></p>
+        <h3>Installation</h3>
         <p>Once you have your code, you need to compile it from the terminal. Just <code>cd</code> in the directory you have cloned or downloaded and execute:
         <pre>make prepare</pre>
         <p>This command will download all the necessary dependencies, when it finishes the following command will build the binary for your platform:</p>
-        <pre>make prepare</pre>
+        <pre>make</pre>
         <p>Now you should have the binary <code>api2html</code> in the folder</p>
+        <p>You can move this file to <code>/usr/local/bin</code> or add it in any other place included in your <code>$PATH</code>.
+        <pre>mv api2html /usr/local/bin</pre>
+        <p>You can delete everything else you have downloaded as it was only needed to generate the binary.</p>
 
         <h2>Configure and start the server</h2>
-        <p>The program only needs a configuration file to run. Create a file named <code>config.json</code> with all the configuration inside, for instance:</p>
+        <p>The program only needs a configuration file to run. Create a file named <code>config.json</code> with all the configuration inside, you can start with this example:</p>
         <pre>
 {
   "robots": true,
@@ -56,34 +60,26 @@
   ],
   "pages":[
     {
-      "name": "products",
-      "URLPattern": "/products/:tag",
-      "BackendURLPattern": "http://myapi.company.com:8080/tag/:tag",
-      "Template": "tag",
-      "CacheTTL": "3600s",
-      "extra": {"foo":"bar"}
-    },
-    {
-      "name": "product",
-      "URLPattern": "/product/:product",
-      "BackendURLPattern": "http://myapi.company.com:8080/product/:product",
-      "Template": "product",
+      "name": "post",
+      "URLPattern": "/post/:post",
+      "BackendURLPattern": "https://jsonplaceholder.typicode.com/posts/:post",
+      "Template": "post",
       "CacheTTL": "3600s"
     },
     {
       "name": "home",
       "URLPattern": "/",
-      "BackendURLPattern": "http://myapi.company.com:8080/home",
+      "BackendURLPattern": "https://jsonplaceholder.typicode.com/posts",
       "Template": "home",
       "CacheTTL": "3600s",
       "extra": {"is_home":true}
     }
   ],
-  "templates": {"home":"home.mustache","product":"product.mustache","tag":"tag.mustache"},
+  "templates": {"home":"home.mustache","post":"post.mustache"},
   "layouts": {"main":"main_layout.mustache"},
   "extra":{
     "lang": "en-US",
-    "url_static": "https://cdn.mycompany.com"
+    "copyright": "© 2018 My Company"
   }
 }
         </pre>
@@ -91,6 +87,17 @@
         <p>Now with the file created start the server</p>
         <pre>api2html serve -d -c config.json -p 8080</pre>
         <p>This will start the server in <a href="http://localhost:8080" rel="nofollow"><code>http://localhost:8080</code></a></p>
+
+        <h2>Common problems</h2>
+        <pre>Error #01: json: cannot unmarshal object into Go value of type []map[string]interface {}</pre>
+        <p>Usually this error happens when you are setting a response of the API as <code>IsArray: true</code> in the configuration file but the response is an Object. Remote the setting.</p>
+
+        <pre>engine creation aborted: invalid character '\n' in string literal
+        engine creation aborted: invalid character '"' after object key:value pair</pre>
+        <p>Have you closed the quotes in the configuration file? Is a comma missing?</p>
+
+
+        <p>Have you closed the quotes in the configuration file?</p>
       </div>
 
     </div>

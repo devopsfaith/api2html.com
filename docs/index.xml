@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on API2HTML | Convert raw API data into beautiful webpages</title>
+    <link>/docs/</link>
+    <description>Recent content in Docs on API2HTML | Convert raw API data into beautiful webpages</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 Feb 2018 16:43:08 +0100</lastBuildDate>
+    
+	<atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started</title>
+      <link>/docs/getting-started/</link>
+      <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
+      
+      <guid>/docs/getting-started/</guid>
+      <description>Download The first thing you need to do is to download or clone the source code of API2HTML.
+Download or clone
+Installation Once you have the source code, you need to compile it from the terminal. Just cd the directory you have cloned or downloaded and execute:
+make prepare  The previous command will download all the necessary dependencies. When it finishes the following command will build the binary for your platform:</description>
+    </item>
+    
+    <item>
+      <title>Running the API2HTML server</title>
+      <link>/docs/running-the-server/</link>
+      <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
+      
+      <guid>/docs/running-the-server/</guid>
+      <description>Configure and start the server Instalar https://github.com/devopsfaith/api2html/tree/master/examples/blog
+Arrencar
+api2html serve -d -c config.json -p 8080  This will start the server in http://localhost:8080</description>
+    </item>
+    
+    <item>
+      <title>Configuration file</title>
+      <link>/docs/configuration-file/</link>
+      <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
+      
+      <guid>/docs/configuration-file/</guid>
+      <description> Explain configuration file </description>
+    </item>
+    
+    <item>
+      <title>Templates</title>
+      <link>/docs/templates/</link>
+      <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
+      
+      <guid>/docs/templates/</guid>
+      <description>To better understand how to write templates, see the Mustaches syntax.
+An example:
+template.mustache
+&amp;lt;h1&amp;gt;{{header}}&amp;lt;/h1&amp;gt; {{#bug}} {{/bug}} {{#items}} {{#first}} &amp;lt;li&amp;gt;&amp;lt;strong&amp;gt;{{name}}&amp;lt;/strong&amp;gt;&amp;lt;/li&amp;gt; {{/first}} {{#link}} &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;{{url}}&amp;quot;&amp;gt;{{name}}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; {{/link}} {{/items}} {{#empty}} &amp;lt;p&amp;gt;The list is empty.&amp;lt;/p&amp;gt; {{/empty}}  With the data
+{ &amp;quot;header&amp;quot;: &amp;quot;Colors&amp;quot;, &amp;quot;items&amp;quot;: [ {&amp;quot;name&amp;quot;: &amp;quot;red&amp;quot;, &amp;quot;first&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Red&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;green&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Green&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;blue&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Blue&amp;quot;} ], &amp;quot;empty&amp;quot;: false }  Produces:
+&amp;lt;h1&amp;gt;Colors&amp;lt;/h1&amp;gt; &amp;lt;li&amp;gt;&amp;lt;strong&amp;gt;red&amp;lt;/strong&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#Green&amp;quot;&amp;gt;green&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#Blue&amp;quot;&amp;gt;blue&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>Multi site generator</title>
+      <link>/docs/generator/</link>
+      <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
+      
+      <guid>/docs/generator/</guid>
+      <description>What is the generator? Mustache is a logic-less templates, meaning that you have a limited set of options to display your content (and also a limited possibility to have errors). Usually template engines have responsibilities like dealing with translations or site configuration that have nothing related with the rendered template itself.
+If you wanted to inject translations in a mustache template you would need to inject as part of the data the translations used in the page.</description>
+    </item>
+    
+    <item>
+      <title>Generating multiple sites</title>
+      <link>/docs/generating-multiple-sites/</link>
+      <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
+      
+      <guid>/docs/generating-multiple-sites/</guid>
+      <description>Let&amp;rsquo;s see a typical directory structure the generator can use:
+your_project/ ├── config │ ├── ca-ES │ │ ├── config.ini │ │ └── routes.ini │ └── global │ ├── config.ini │ └── routes.ini ├── i18n │ ├── ca-ES.ini │ ├── en-US.ini │ └── zh-CN.ini └── sources ├── ca-ES │ └── static │ ├── 1234567890.txt │ └── 505 └── global ├── Dockerfile ├── config.json ├── static │ ├── 404 │ ├── robots.</description>
+    </item>
+    
+    <item>
+      <title>Generating multiple sites</title>
+      <link>/docs/running-the-generator/</link>
+      <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
+      
+      <guid>/docs/running-the-generator/</guid>
+      <description>Let&amp;rsquo;s see a typical directory structure for the generator:
+your_project/ ├── config │ ├── ca-ES │ │ ├── config.ini │ │ └── routes.ini │ └── global │ ├── config.ini │ └── routes.ini ├── i18n │ ├── ca-ES.ini │ ├── en-US.ini │ └── zh-CN.ini └── sources ├── ca-ES │ └── static │ ├── 1234567890.txt │ └── 505 └── global ├── Dockerfile ├── config.json ├── static │ ├── 404 │ ├── robots.txt │ └── sitemap.</description>
+    </item>
+    
+    <item>
+      <title>Common problems</title>
+      <link>/docs/common-problems/</link>
+      <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
+      
+      <guid>/docs/common-problems/</guid>
+      <description>Common problems Error #01: json: cannot unmarshal object into Go value of type []map[string]interface {}  Usually this error happens when you are setting a response of the API as IsArray: true in the configuration file but the response is an Object. Remote the setting.
+engine creation aborted: invalid character &#39;\n&#39; in string literal engine creation aborted: invalid character &#39;&amp;quot;&#39; after object key:value pair  Have you closed the quotes in the configuration file?</description>
+    </item>
+    
+    <item>
+      <title>Customizing errors</title>
+      <link>/docs/customizing-errors/</link>
+      <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
+      
+      <guid>/docs/customizing-errors/</guid>
+      <description>When you start the server and the errors are not yet customized you will see the following messages in the console:
+reading ./static/500 : open ./static/500: no such file or directory reading ./static/404 : open ./static/404: no such file or directory reading ./static/405 : open ./static/405: no such file or directory  This message is just informing you that whenever an HTTP error 500, 404 or 405 is raised the user will just see a message in plain text, similar to this:</description>
+    </item>
+    
+  </channel>
+</rss>
