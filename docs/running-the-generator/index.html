@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.33" />
-  <title> Generating multiple sites </title>
+  <meta name="generator" content="Hugo 0.36" />
+  <title> Running the generator  | API2HTML</title>
   
-  <meta name="description" content="An utility to make multiple sites "> 
+  <meta name="description" content="How the generator works"> 
   
   
   
@@ -19,8 +19,8 @@
   <meta name="author" content="Devops Faith">
 
 
-  <meta property="og:title" content="Generating multiple sites" />
-<meta property="og:description" content="An utility to make multiple sites " />
+  <meta property="og:title" content="Running the generator" />
+<meta property="og:description" content="How the generator works" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/running-the-generator/" />
 
@@ -81,84 +81,38 @@
 
     
     
-    <h1>Generating multiple sites</h1>
-    <p class="lead mb-4">While the mustache templates are rendered in execution time, the generator templates are executed before the server starts and produces all the needed versions of the mustache templates. </p>
+    <h1>Running the generator</h1>
+    <p class="lead mb-4">The generator converts the meta-templates into mustache templates for all the sites you have declared, allowing you to maintain a single code base for all your sites.. </p>
 
-    <p>Let&rsquo;s see a typical directory structure for the generator:</p>
+    <p>In order to use the generator the first thing you need to have is the <a href="/docs/generating-multiple-sites/#directory-structure">folder structure</a> expected by the generator.</p>
 
-<pre><code>your_project/
-├── config
-│   ├── ca-ES
-│   │   ├── config.ini
-│   │   └── routes.ini
-│   └── global
-│       ├── config.ini
-│       └── routes.ini
-├── i18n
-│   ├── ca-ES.ini
-│   ├── en-US.ini
-│   └── zh-CN.ini
-└── sources
-    ├── ca-ES
-    │   └── static
-    │       ├── 1234567890.txt
-    │       └── 505
-    └── global
-        ├── Dockerfile
-        ├── config.json
-        ├── static
-        │   ├── 404
-        │   ├── robots.txt
-        │   └── sitemap.xml
-        └── tmpl
-            └── home.mustache
+<p>You can see the usage of the command passing the help flag:</p>
+
+<pre><code>$ api2html generate -h
+Generate the final api2html templates.
+
+Usage:
+  api2html generate [flags]
+
+Aliases:
+  generate, create, new
+
+Examples:
+api2html generate -i en_US -r partial
+
+Flags:
+  -h, --help          help for generate
+  -i, --iso string    (comma-separated) iso code of the site to create (default &quot;*&quot;)
+  -p, --path string   Base path for the generation (default &quot;/Users/artomb/git/go/src/github.com/devopsfaith/api2html&quot;)
+  -r, --reg string    regex filtering the sources to move to the output folder (default &quot;ignore&quot;)
 </code></pre>
 
-<ul>
-<li>The <code>config</code> directory stores all the data that will be injected in the meta-templates.</li>
-<li>The <code>i18n</code> directory stores all the translations</li>
-<li>The <code>sources</code> directory contains all the meta-templates. Notice that there are .txt files, Dockerfile or .json files. These are meta-templates too. (Yes, you can create Dockerfiles by using variables)</li>
-</ul>
+<p>To generate the <code>output</code> directory with all the generated templates you need to pass the ISO code of the site you want to create. If you want to generate them all at once, use the wildcard <code>*</code>-</p>
 
-<p>Notice that there is a <code>global</code> folder inside <code>sources</code> and <code>config</code>. These files will be present in any language but if a folder with an ISO code declares the same file it will be overwritten, if it is new, it will be added to the language only.</p>
-
-<p>After running the generator the following output will be created:</p>
-
-<pre><code>your_project/
-...
-└── output
-   ├── ca-ES
-   │   ├── Dockerfile
-   │   ├── config.json
-   │   ├── static
-   │   │   ├── 1234567890.txt
-   │   │   ├── 404
-   │   │   ├── 505
-   │   │   ├── robots.txt
-   │   │   └── sitemap.xml
-   │   └── tmpl
-   │       └── home.mustache
-   ├── en-US
-   │   ├── Dockerfile
-   │   ├── config.json
-   │   ├── static
-   │   │   ├── 404
-   │   │   ├── robots.txt
-   │   │   └── sitemap.xml
-   │   └── tmpl
-   │       └── home.mustache
-   └── zh-CN
-       ├── Dockerfile
-       ├── config.json
-       ├── static
-       │   ├── 404
-       │   ├── robots.txt
-       │   └── sitemap.xml
-       └── tmpl
-           └── home.mustache
+<pre><code>api2html generate --iso *
 </code></pre>
 
-<p>Now all this files are final templates (and not meta-templates). Notice how the <code>505</code> and <code>1234567890.txt</code> files exist only in the ISO <code>ca-ES</code>.</p>
+<p>Now check the <code>output</code> folder.</p>
 
 
     

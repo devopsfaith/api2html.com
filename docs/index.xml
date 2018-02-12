@@ -26,12 +26,11 @@ make prepare  The previous command will download all the necessary dependencies.
     <item>
       <title>Running the API2HTML server</title>
       <link>/docs/running-the-server/</link>
-      <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
+      <pubDate>Mon, 12 Feb 2018 12:20:00 +0100</pubDate>
       
       <guid>/docs/running-the-server/</guid>
-      <description>Configure and start the server Instalar https://github.com/devopsfaith/api2html/tree/master/examples/blog
-Arrencar
-api2html serve -d -c config.json -p 8080  This will start the server in http://localhost:8080</description>
+      <description>In order to start the API2HTML server you will need to provide the configuration file that defines the website you want to run. As the configuration file references the location of the mustache templates you will need to have them in the disc too. We will use the blog example provided in the source code.
+Pick a project As we said, we will use the blog example provided in the source code.</description>
     </item>
     
     <item>
@@ -49,12 +48,10 @@ api2html serve -d -c config.json -p 8080  This will start the server in http://l
       <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
       
       <guid>/docs/templates/</guid>
-      <description>To better understand how to write templates, see the Mustaches syntax.
-An example:
+      <description>If you are not familiar with Mustache, we recommend start reading the super simple Mustache&amp;rsquo;s syntax and build templates. Here is a basic example:
 template.mustache
 &amp;lt;h1&amp;gt;{{header}}&amp;lt;/h1&amp;gt; {{#bug}} {{/bug}} {{#items}} {{#first}} &amp;lt;li&amp;gt;&amp;lt;strong&amp;gt;{{name}}&amp;lt;/strong&amp;gt;&amp;lt;/li&amp;gt; {{/first}} {{#link}} &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;{{url}}&amp;quot;&amp;gt;{{name}}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; {{/link}} {{/items}} {{#empty}} &amp;lt;p&amp;gt;The list is empty.&amp;lt;/p&amp;gt; {{/empty}}  With the data
-{ &amp;quot;header&amp;quot;: &amp;quot;Colors&amp;quot;, &amp;quot;items&amp;quot;: [ {&amp;quot;name&amp;quot;: &amp;quot;red&amp;quot;, &amp;quot;first&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Red&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;green&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Green&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;blue&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Blue&amp;quot;} ], &amp;quot;empty&amp;quot;: false }  Produces:
-&amp;lt;h1&amp;gt;Colors&amp;lt;/h1&amp;gt; &amp;lt;li&amp;gt;&amp;lt;strong&amp;gt;red&amp;lt;/strong&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#Green&amp;quot;&amp;gt;green&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#Blue&amp;quot;&amp;gt;blue&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;  </description>
+{ &amp;quot;header&amp;quot;: &amp;quot;Colors&amp;quot;, &amp;quot;items&amp;quot;: [ {&amp;quot;name&amp;quot;: &amp;quot;red&amp;quot;, &amp;quot;first&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Red&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;green&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Green&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;blue&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Blue&amp;quot;} ], &amp;quot;empty&amp;quot;: false }  Produces the following HTML when rendered:</description>
     </item>
     
     <item>
@@ -73,18 +70,19 @@ If you wanted to inject translations in a mustache template you would need to in
       <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
       
       <guid>/docs/generating-multiple-sites/</guid>
-      <description>Let&amp;rsquo;s see a typical directory structure the generator can use:
-your_project/ ├── config │ ├── ca-ES │ │ ├── config.ini │ │ └── routes.ini │ └── global │ ├── config.ini │ └── routes.ini ├── i18n │ ├── ca-ES.ini │ ├── en-US.ini │ └── zh-CN.ini └── sources ├── ca-ES │ └── static │ ├── 1234567890.txt │ └── 505 └── global ├── Dockerfile ├── config.json ├── static │ ├── 404 │ ├── robots.</description>
+      <description>Directory structure The generator needs to have a known folder structure in order to operate properly. Let&amp;rsquo;s see a typical directory structure the generator knows to use:
+your_project/ ├── config │ ├── ca-ES │ │ ├── config.ini │ │ └── routes.ini │ └── global │ ├── config.ini │ └── routes.ini ├── i18n │ ├── ca-ES.ini │ ├── en-US.ini │ └── zh-CN.ini └── sources ├── ca-ES │ └── static │ ├── 1234567890.</description>
     </item>
     
     <item>
-      <title>Generating multiple sites</title>
+      <title>Running the generator</title>
       <link>/docs/running-the-generator/</link>
       <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
       
       <guid>/docs/running-the-generator/</guid>
-      <description>Let&amp;rsquo;s see a typical directory structure for the generator:
-your_project/ ├── config │ ├── ca-ES │ │ ├── config.ini │ │ └── routes.ini │ └── global │ ├── config.ini │ └── routes.ini ├── i18n │ ├── ca-ES.ini │ ├── en-US.ini │ └── zh-CN.ini └── sources ├── ca-ES │ └── static │ ├── 1234567890.txt │ └── 505 └── global ├── Dockerfile ├── config.json ├── static │ ├── 404 │ ├── robots.txt │ └── sitemap.</description>
+      <description>In order to use the generator the first thing you need to have is the folder structure expected by the generator.
+You can see the usage of the command passing the help flag:
+$ api2html generate -h Generate the final api2html templates. Usage: api2html generate [flags] Aliases: generate, create, new Examples: api2html generate -i en_US -r partial Flags: -h, --help help for generate -i, --iso string (comma-separated) iso code of the site to create (default &amp;quot;*&amp;quot;) -p, --path string Base path for the generation (default &amp;quot;/Users/artomb/git/go/src/github.</description>
     </item>
     
     <item>

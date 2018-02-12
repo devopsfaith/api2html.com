@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.33" />
-  <title> Running the API2HTML server </title>
+  <meta name="generator" content="Hugo 0.36" />
+  <title> Running the API2HTML server  | API2HTML</title>
   
   <meta name="description" content="Start the API2HTML server with a sample site"> 
   
@@ -26,9 +26,9 @@
 
 
 
-<meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00"/>
+<meta property="article:published_time" content="2018-02-12T12:20:00&#43;01:00"/>
 
-<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00"/>
+<meta property="article:modified_time" content="2018-02-12T12:20:00&#43;01:00"/>
 
 
 
@@ -90,7 +90,8 @@
 <ul>
 <li>
 <ul>
-<li><a href="#configure-and-start-the-server">Configure and start the server</a></li>
+<li><a href="#pick-a-project">Pick a project</a></li>
+<li><a href="#start-the-server">Start the server</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -98,21 +99,29 @@
     </div>
     
     <h1>Running the API2HTML server</h1>
-    <p class="lead mb-4">Start the API2HTML with an example site . </p>
+    <p class="lead mb-4">Instructions on how to start the API2HTML server to serve an example blog site. </p>
 
     
 
-<h2 id="configure-and-start-the-server">Configure and start the server</h2>
+<p>In order to start the API2HTML server you will need to provide the configuration file that defines the website you want to run. As the configuration file references the location of the mustache templates you will need to have them in the disc too. We will use the <a href="https://github.com/devopsfaith/api2html/tree/master/examples/blog">blog example</a> provided in the source code.</p>
 
-<p>Instalar
-<a href="https://github.com/devopsfaith/api2html/tree/master/examples/blog">https://github.com/devopsfaith/api2html/tree/master/examples/blog</a></p>
+<h2 id="pick-a-project">Pick a project</h2>
 
-<p>Arrencar</p>
+<p>As we said, we will use the <strong>blog example</strong> provided in the source code. Just do:</p>
+
+<pre><code>cd examples/blog
+</code></pre>
+
+<p>Or choose another example.</p>
+
+<h2 id="start-the-server">Start the server</h2>
+
+<p>Being in the example folder or the project root you want to start run:</p>
 
 <pre><code>api2html serve -d -c config.json -p 8080
 </code></pre>
 
-<p>This will start the server in <a href="http://localhost:8080"><code>http://localhost:8080</code></a></a></p>
+<p>This will start the server in <a href="http://localhost:8080"><code>http://localhost:8080</code></a></p>
 
 
     
