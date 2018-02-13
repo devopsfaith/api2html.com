@@ -79,6 +79,8 @@
   <div class="container mt-4">
     
 
+
+
     
     
     <div class="card mb-4 mx-4 float-md-right bg-dark">
@@ -90,19 +92,79 @@
 <ul>
 <li>
 <ul>
-<li><a href="#explain-configuration-file">Explain configuration file</a></li>
+<li><a href="#root-attributes">Root attributes</a></li>
+<li><a href="#page-object">Page object</a></li>
 </ul></li>
 </ul>
 </nav>
         </div>
     </div>
+
     
     <h1>Configuration file</h1>
-    <p class="lead mb-4">. </p>
+    <p class="lead mb-4">Syntax used in the configuration file. </p>
 
     
 
-<h2 id="explain-configuration-file">Explain configuration file</h2>
+<p>Let&rsquo;s start with an example and then let&rsquo;s decompose the keys:</p>
+
+<pre><code>{
+  &quot;robots&quot;: true,
+  &quot;sitemap&quot;: true,
+  &quot;static_txt_content&quot;: [
+    &quot;hello.txt&quot;
+  ],
+  &quot;pages&quot;:[
+    {
+      &quot;name&quot;: &quot;post&quot;,
+      &quot;URLPattern&quot;: &quot;/posts/:post&quot;,
+      &quot;BackendURLPattern&quot;: &quot;https://jsonplaceholder.typicode.com/posts/:post&quot;,
+      &quot;Template&quot;: &quot;post&quot;,
+      &quot;Layout&quot;: &quot;main&quot;,
+      &quot;CacheTTL&quot;: &quot;3600s&quot;
+    },
+    {
+      &quot;name&quot;: &quot;home&quot;,
+      &quot;URLPattern&quot;: &quot;/&quot;,
+      &quot;BackendURLPattern&quot;: &quot;https://jsonplaceholder.typicode.com/posts&quot;,
+      &quot;Template&quot;: &quot;home&quot;,
+      &quot;Layout&quot;: &quot;main&quot;,
+      &quot;CacheTTL&quot;: &quot;3600s&quot;,
+      &quot;IsArray&quot;: true,
+      &quot;extra&quot;: {&quot;is_home&quot;:true }
+    }
+  ],
+  &quot;templates&quot;: {&quot;home&quot;:&quot;home.mustache&quot;,&quot;post&quot;:&quot;post.mustache&quot;},
+  &quot;layouts&quot;: {&quot;main&quot;:&quot;main_layout.mustache&quot;},
+  &quot;extra&quot;:{
+    &quot;lang&quot;: &quot;en-US&quot;,
+    &quot;copyright&quot;: &quot;© 2018 My Company&quot;
+  }
+}
+</code></pre>
+
+<h2 id="root-attributes">Root attributes</h2>
+
+<ul>
+<li><code>robots</code> (boolean): When set to true automatically creates the route <code>/robots.txt</code> using the static file with the same name.</li>
+<li><code>sitemap</code> (boolean): When set to true automatically creates the route <code>/sitemaps.xml</code> using the static file with the same name.</li>
+<li><code>static_txt_content</code> (list): Static content that will be served when present in the <code>static</code> folder.</li>
+<li><code>pages</code> (list): List of page objects that API2HTML will process and render</li>
+<li><code>templates</code> (key-value): List of template names and filename. The name is used in the page definition and the value is the relative path to the file.</li>
+<li><code>layouts</code> (key-value): List of layouts available names and filename. The layout loads the surrounding content so you only need to declare the inner content in each template. Layouts usually contain headers, footers and similar content.</li>
+<li><code>extra</code>(key-value): List of additional variables that will be available across all templates under  <code>{{ extra.key }}</code></li>
+</ul>
+
+<h2 id="page-object">Page object</h2>
+
+<p>When declaring <code>pages</code> in the root the page object accepts the following attributes:</p>
+
+<p><code>name</code>: A friendly identifier for your page. Letters only, no spaces.
+<code>URLPattern</code>: The URL where API2HTML will listen. You can use variables using colons ( <code>:var</code>)
+<code>BackendURLPattern</code>: The API call that will be executed and injected inside the <code>{{ data }}</code> variable. You can use the variables declared in URLPattern
+<code>Template</code>: The template name as defined in the <code>templates</code> attribute
+<code>Layout</code>: The layout that will encapsulate the template, as defined in the <code>layouts</code> attribute.
+<code>CacheTTL</code> (string): Time a successful response from the API will be cached for. Use <code>s</code> for seconds, <code>h</code> hours, <code>m</code> for minutes. E.g: <code>4h</code></p>
 
 
     

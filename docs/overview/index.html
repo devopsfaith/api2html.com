@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.36" />
-  <title> Getting Started - Installation  | API2HTML</title>
+  <title> Overview  | API2HTML</title>
   
-  <meta name="description" content="Download and start using API2HTML"> 
+  <meta name="description" content="What is API2HTML and how can it help"> 
   
   
   
@@ -19,10 +19,10 @@
   <meta name="author" content="Devops Faith">
 
 
-  <meta property="og:title" content="Getting Started - Installation" />
-<meta property="og:description" content="Download and start using API2HTML" />
+  <meta property="og:title" content="Overview" />
+<meta property="og:description" content="What is API2HTML and how can it help" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/getting-started/" />
+<meta property="og:url" content="/docs/overview/" />
 
 
 
@@ -48,7 +48,7 @@
 
   
 
-  <link rel="canonical" href="/docs/getting-started/">  
+  <link rel="canonical" href="/docs/overview/">  
   <link href="/css/custom.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -83,92 +83,32 @@
 
     
     
-    <div class="card mb-4 mx-4 float-md-right bg-dark">
-        <div class="card-header bg-primary">
-          <h5 class="mb-0 text-center">Table of Contents</h5>
-        </div>
-        <div class="card-body">
-          <nav id="TableOfContents">
+    <h1>Overview</h1>
+    <p class="lead mb-4">Discover what is API2HTML and what are the capabilities that will make you launch your next website in no-time. </p>
+
+    <p>API2HTML is a <strong>dynamic website builder</strong> that only requires you to code HTML templates focusing on the view. At the same time API2HTML will inject data from external API resources into these views. The template engine used to render the templates is the <strong>logic-less</strong> template engine <a href="https://mustache.github.io/">mustache</a>.</p>
+
+<p>API2HTML requires no controllers or models as all the data is provided by external resources. To do so, the application uses a <code>configuration.json</code> file that simply defines the mapping between URLs, templates and API calls.</p>
+
+<p>The workflow to create pages in your new site is very simple:</p>
+
 <ul>
-<li>
-<ul>
-<li><a href="#download">Download</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#verify-the-installation">Verify the installation</a></li>
-</ul></li>
+<li>Pick the URL pattern, including any <code>:variables</code> you might need e.g: <code>/special-deals/:category</code></li>
+<li>Define the external API call that will feed this page. Reuse the variables.</li>
+<li>Write the template and use <code>{{data}}</code> to use the API response. Access subfields using the dot <code>.</code> separator. E.g: <code>{{ data.status }}</code></li>
+<li>Start the server!</li>
 </ul>
-</nav>
-        </div>
-    </div>
 
-    
-    <h1>Getting Started - Installation</h1>
-    <p class="lead mb-4">Download and install API2HTML in any Mac, Linux or container. </p>
-
-    
-
-<h2 id="download">Download</h2>
-
-<p>The first thing you need to do is to download or clone the source code of API2HTML.</p>
-
-<p><a class="btn btn-outline-primary" href="https://github.com/devopsfaith/api2html">Download or clone</a></p>
-
-<h2 id="installation">Installation</h2>
-
-<p>Once you have the source code, you need to compile it from the terminal. Just <code>cd</code> the directory you have cloned or downloaded and execute:</p>
-
-<pre><code>make prepare
-</code></pre>
-
-<p>The previous command will download all the necessary dependencies. When it finishes the following command will build the binary for your platform:</p>
-
-<pre><code>make
-</code></pre>
-
-<p>Now you should have the binary <code>api2html</code> in the same folder.</p>
-
-<p>You can move this file to <code>/usr/local/bin</code> or <code>$GOPATH/bin</code> or add it in any other place that is included in your <code>$PATH</code>.</p>
-
-<pre><code>mv api2html /usr/local/bin
-</code></pre>
-
-<p><strong>You can delete everything else you have downloaded</strong> as it was only needed to generate the binary. You might want to keep the <code>examples</code> folder for latter reference.</p>
-
-<h2 id="verify-the-installation">Verify the installation</h2>
-
-<p>If your installation is correct you should be able to execute the binary and see the help:</p>
-
-<pre><code>$ api2html
-
-
-Usage:
-  api2html [command]
-
-Available Commands:
-  generate    Generate the final api2html templates.
-  help        Help about any command
-  serve       Run the api2html server.
-
-Flags:
-  -h, --help   help for api2html
-
-Use &quot;api2html [command] --help&quot; for more information about a command.
-</code></pre>
-
-<p>If you get an error that <code>api2html</code> could not be found, check that your <code>PATH</code> variable contains the folder where the binary is.</p>
+<p><img alt="How it works" src="/img/api2html-how-it-works.png" class="img-fluid my-5" /></p>
 
 
     
 
     <h2>Next steps</h2>
     
-    <p>
-        Go back to <a href="/docs/overview/">Overview</a>
-    </p>
-    
     
     <p>
-        Continue to <a href="/docs/running-the-server/">Running the API2HTML server</a>
+        Continue to <a href="/docs/getting-started/">Getting Started - Installation</a>
     </p>
     
 
