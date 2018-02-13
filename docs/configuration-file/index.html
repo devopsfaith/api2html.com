@@ -139,6 +139,10 @@
   &quot;extra&quot;:{
     &quot;lang&quot;: &quot;en-US&quot;,
     &quot;copyright&quot;: &quot;© 2018 My Company&quot;
+  },
+  &quot;public_folder&quot;: {
+    &quot;path_to_folder&quot;: &quot;./public&quot;,
+    &quot;url_prefix&quot;: &quot;/&quot;
   }
 }
 </code></pre>
@@ -153,6 +157,7 @@
 <li><code>templates</code> (key-value): List of template names and filename. The name is used in the page definition and the value is the relative path to the file.</li>
 <li><code>layouts</code> (key-value): List of layouts available names and filename. The layout loads the surrounding content so you only need to declare the inner content in each template. Layouts usually contain headers, footers and similar content.</li>
 <li><code>extra</code>(key-value): List of additional variables that will be available across all templates under  <code>{{ extra.key }}</code></li>
+<li><code>public_folder</code> (optional struct): If defined, the files and folders at <code>path_to_folder</code> will be served at the prefix <code>url_prefix</code>.</li>
 </ul>
 
 <h2 id="page-object">Page object</h2>

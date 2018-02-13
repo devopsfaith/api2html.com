@@ -92,7 +92,8 @@
 <ul>
 <li>
 <ul>
-<li><a href="#common-problems">Common problems</a></li>
+<li><a href="#the-server-returns-a-500-error-for-some-endpoints">The server returns a 500 error for some endpoints</a></li>
+<li><a href="#the-service-does-not-start">The service does not start</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -105,19 +106,43 @@
 
     
 
-<h2 id="common-problems">Common problems</h2>
+<h2 id="the-server-returns-a-500-error-for-some-endpoints">The server returns a 500 error for some endpoints</h2>
+
+<p><strong>Symptoms</strong></p>
+
+<p>The API2HTML server returns a 500 error for a request and logs messages like these ones</p>
 
 <pre><code>Error #01: json: cannot unmarshal object into Go value of type []map[string]interface {}
+Error #01: json: cannot unmarshal array into Go value of type map[string]interface {}
 </code></pre>
 
-<p>Usually this error happens when you are setting a response of the API as <code>IsArray: true</code> in the configuration file but the response is an Object. Remote the setting.</p>
+<p><strong>Diagnosis</strong></p>
+
+<p>Your configuration is not properly defining the expected type of result it should get from the backend.</p>
+
+<p><strong>Solution</strong></p>
+
+<p>Fix the <code>IsArray</code> value of the configuration. Use <code>IsArray:true</code> if the expected response is an Array. If it is an Object, remove the setting.</p>
+
+<h2 id="the-service-does-not-start">The service does not start</h2>
+
+<p><strong>Symptoms</strong></p>
+
+<p>The API2HTML server does not start and you are getting error messages like the following ones</p>
 
 <pre><code>engine creation aborted: invalid character '\n' in string literal
 engine creation aborted: invalid character '&quot;' after object key:value pair
 </code></pre>
 
-<p>Have you closed the quotes in the configuration file? Is a comma missing?
-Have you closed the quotes in the configuration file?</p>
+<p><strong>Diagnosis</strong></p>
+
+<p>Your configuration file is not a proper JSON.</p>
+
+<p><strong>Solution</strong></p>
+
+<p>Have you closed the quotes in the configuration file? Is a comma missing? Have you closed the quotes in the configuration file?</p>
+
+<p>The best way to deal with this kind of errors is to check your configuration file with any JSON linter.</p>
 
 
     
