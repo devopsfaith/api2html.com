@@ -54,7 +54,7 @@
 </head>
 
 <body>
-   <div class="container d-flex flex-column flex-md-row align-items-center p-3 px-md-4">
+   <div class=" d-flex flex-column flex-md-row align-items-center p-3 px-md-4">
   <h5 class="my-0 mr-md-auto font-weight-normal logo">
     <a href="/">
       <img src="/img/API2HTML.png" title="DevOps Faith logo"> <span class="mx-2">API2HTML</span>
@@ -76,17 +76,68 @@
   <a class="btn btn-outline-primary" href="https://github.com/devopsfaith/api2html">Clone</a>
 </div>
  
-  <div class="container mt-4">
-    
+
+  
+<div class="row m-4">
+    <div class="col-md-3 sidebar">
+
+        <ul class="nav flex-column">
+
+            
+            
+            <li class="nav-item">
+                <a class="nav-link text-white" title="What is API2HTML and how can it help" href="/docs/overview/">Overview</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link text-white" title="Download and start using API2HTML" href="/docs/getting-started/">Getting Started - Installation</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link text-white" title="Start the API2HTML server with a sample site" href="/docs/running-the-server/">Running the API2HTML server</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link text-white" title="Understanding the configuration file" href="/docs/configuration-file/">Configuration file</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link text-white" title="Write your templates using Mustache engine" href="/docs/templates/">Templates</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link text-white" title="An utility to make multiple sites " href="/docs/generator/">Multi site generator</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link text-white" title="An utility to make multiple sites " href="/docs/generating-multiple-sites/">Generating multiple sites</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link active" title="How the generator works" href="/docs/running-the-generator/">Running the generator</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link text-white" title="Common problems using API2HTML" href="/docs/common-problems/">Common problems</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link text-white" title="Create custom pages for 404 and similar errors" href="/docs/customizing-errors/">Customizing errors</a>
+            </li>
+            
+        </ul>
+
+    </div>
+
+    <div class="col-md-9 pl-3">
 
 
+        
+        
+      <h1>Running the generator</h1>
+      <p class="lead mb-4">The generator converts the meta-templates into mustache templates for all the sites you have declared, allowing you to maintain a single code base for all your sites.. </p>
 
-    
-    
-    <h1>Running the generator</h1>
-    <p class="lead mb-4">The generator converts the meta-templates into mustache templates for all the sites you have declared, allowing you to maintain a single code base for all your sites.. </p>
-
-    <p>In order to use the generator the first thing you need to have is the <a href="/docs/generating-multiple-sites/#directory-structure">folder structure</a> expected by the generator.</p>
+      <p>In order to use the generator the first thing you need to have is the <a href="/docs/generating-multiple-sites/#directory-structure">folder structure</a> expected by the generator.</p>
 
 <p>You can see the usage of the command passing the help flag:</p>
 
@@ -117,7 +168,7 @@ Flags:
 <p>Now check the <code>output</code> folder.</p>
 
 
-    
+      
 
     <h2>Next steps</h2>
     
@@ -132,11 +183,14 @@ Flags:
     
 
 
-
   </div>
+</div>
+
+
+
   <footer class="py-4 mt-5">
     
-      <div class="container">
+  <div class="container">
     <div class="row">
       <div class="col-12 col-md">
         <p class="small text-muted">Made with <i class="material-icons" style="color:hotpink">favorite_border</i> in Barcelona by <a href="https://twitter.com/devopsfaith">

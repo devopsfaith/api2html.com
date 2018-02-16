@@ -6162,8 +6162,17 @@ body > * {
   margin-bottom: 0;
 }
 
+.sidebar {
+      border-right: 1px solid rgba(255,0,0,.2);
+      font-size: 0.9rem;
+}
 .logo a {
   text-decoration: none;
+}
+
+a.active {
+  color: #dc3545;
+  font-weight: bold;
 }
 
 footer {
