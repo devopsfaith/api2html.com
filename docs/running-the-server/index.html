@@ -64,7 +64,7 @@
   <nav class="my-2 my-md-0 mr-md-3">
     
     
-    <a class="p-2 text-light" href="/docs/" >
+    <a class="p-2 text-light" href="/docs/overview/" >
       Documentation
     </a>
     
@@ -143,8 +143,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#pick-a-project">Pick a project</a></li>
-<li><a href="#start-the-server">Start the server</a></li>
+<li><a href="#starting-the-server-with-an-example-site">Starting the server with an example site</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -157,40 +156,38 @@
 
       
 
-<p>In order to start the API2HTML server you will need to provide the configuration file that defines the website you want to run. As the configuration file references the location of the mustache templates you will need to have them in the disc too. We will use the <a href="https://github.com/devopsfaith/api2html/tree/master/examples/blog">blog example</a> provided in the source code.</p>
+<p>API2HTML needs a configuration file in <code>json</code> format with the definition of the service you want to start. As the configuration file declares what templates are loaded in every page, you will need to have these templates in a folder too. The easiest way to get started is using the <a href="https://github.com/devopsfaith/api2html/tree/master/examples/blog">blog example</a> provided in the source code under <code>examples/blog</code>. Here you have all the files to run your first site.</p>
 
-<h2 id="pick-a-project">Pick a project</h2>
+<h2 id="starting-the-server-with-an-example-site">Starting the server with an example site</h2>
 
-<p>As we said, we will use the <strong>blog example</strong> provided in the source code. Just do:</p>
+<p>As we said, we will use the <strong>blog example</strong> to demonstrate how API2HTML works. The code is provided in the source code. Just do:</p>
 
 <pre><code>cd examples/blog
+api2html serve -d -c config.json -p 8080
 </code></pre>
 
-<p>Or choose another example.</p>
+<p>This will start the server in <a href="http://localhost:8080"><code>http://localhost:8080</code></a>, with a fake blog that is loading data from an external API.</p>
 
-<h2 id="start-the-server">Start the server</h2>
+<p>To stop the service just press <code>CTRL-C</code>.</p>
 
-<p>Being in the example folder or the project root you want to start run:</p>
-
-<pre><code>api2html serve -d -c config.json -p 8080
-</code></pre>
-
-<p>This will start the server in <a href="http://localhost:8080"><code>http://localhost:8080</code></a></p>
+<p>You can use any other example instead of the blog.</p>
 
 
       
 
-    <h2>Next steps</h2>
+    <hr/>
     
-    <p>
-        Go back to <a href="/docs/getting-started/">Getting Started - Installation</a>
+    <p class="float-right">
+        Continue to <a href="/docs/configuration-file/">Configuration file</a> &rarr;
     </p>
     
+
     
-    <p>
-        Continue to <a href="/docs/configuration-file/">Configuration file</a>
+    <p class="float-left">
+        &larr; Back to <a href="/docs/getting-started/">Getting Started - Installation</a>
     </p>
     
+
 
 
   </div>

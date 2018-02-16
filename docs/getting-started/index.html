@@ -64,7 +64,7 @@
   <nav class="my-2 my-md-0 mr-md-3">
     
     
-    <a class="p-2 text-light" href="/docs/" >
+    <a class="p-2 text-light" href="/docs/overview/" >
       Documentation
     </a>
     
@@ -144,6 +144,7 @@
 <li>
 <ul>
 <li><a href="#download">Download</a></li>
+<li><a href="#compilation-requirements">Compilation requirements</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#verify-the-installation">Verify the installation</a></li>
 </ul></li>
@@ -164,6 +165,15 @@
 
 <p><a class="btn btn-outline-primary" href="https://github.com/devopsfaith/api2html">Download or clone</a></p>
 
+<h2 id="compilation-requirements">Compilation requirements</h2>
+
+<p>API2HTML is a self-contained binary with no external dependencies. Nevertheless, in order to generate the binary you will need:</p>
+
+<ul>
+<li>Go lang (<a href="https://golang.org/dl/">install</a>)</li>
+<li><code>make</code> (your operating system usually comes with this)</li>
+</ul>
+
 <h2 id="installation">Installation</h2>
 
 <p>Once you have the source code, you need to compile it from the terminal. Just <code>cd</code> the directory you have cloned or downloaded and execute:</p>
@@ -171,7 +181,7 @@
 <pre><code>make prepare
 </code></pre>
 
-<p>The previous command will download all the necessary dependencies. When it finishes the following command will build the binary for your platform:</p>
+<p>The previous command will download and prepare everything that is necessary. When it finishes execute the following command to build a binary for your platform:</p>
 
 <pre><code>make
 </code></pre>
@@ -183,7 +193,7 @@
 <pre><code>mv api2html /usr/local/bin
 </code></pre>
 
-<p><strong>You can delete everything else you have downloaded</strong> as it was only needed to generate the binary. You might want to keep the <code>examples</code> folder for latter reference.</p>
+<p><strong>You can delete everything else you have downloaded</strong> as it was only needed to generate the binary, but if this is your first time using the program we recommend you to keep the <code>examples</code> folder so you can play with them.</p>
 
 <h2 id="verify-the-installation">Verify the installation</h2>
 
@@ -206,22 +216,24 @@ Flags:
 Use &quot;api2html [command] --help&quot; for more information about a command.
 </code></pre>
 
-<p>If you get an error that <code>api2html</code> could not be found, check that your <code>PATH</code> variable contains the folder where the binary is.</p>
+<p>If you get an error that <code>api2html</code> could not be found, check that your <code>PATH</code> variable contains the folder where the binary is. If you are stuck, you can always <code>cd</code> where the binary is and execute it using <code>./api2html</code>.</p>
 
 
       
 
-    <h2>Next steps</h2>
+    <hr/>
     
-    <p>
-        Go back to <a href="/docs/overview/">Overview</a>
+    <p class="float-right">
+        Continue to <a href="/docs/running-the-server/">Running the API2HTML server</a> &rarr;
     </p>
     
+
     
-    <p>
-        Continue to <a href="/docs/running-the-server/">Running the API2HTML server</a>
+    <p class="float-left">
+        &larr; Back to <a href="/docs/overview/">Overview</a>
     </p>
     
+
 
 
   </div>

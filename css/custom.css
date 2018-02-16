@@ -6163,9 +6163,11 @@ body > * {
 }
 
 .sidebar {
-      border-right: 1px solid rgba(255,0,0,.2);
+      border-right: 1px solid rgba(184,28,24,.2);
       font-size: 0.9rem;
 }
+
+
 .logo a {
   text-decoration: none;
 }

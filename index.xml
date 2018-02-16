@@ -29,8 +29,8 @@ API2HTML requires no controllers or models as all the data is provided by extern
       <guid>/docs/getting-started/</guid>
       <description>Download The first thing you need to do is to download or clone the source code of API2HTML.
 Download or clone
-Installation Once you have the source code, you need to compile it from the terminal. Just cd the directory you have cloned or downloaded and execute:
-make prepare  The previous command will download all the necessary dependencies. When it finishes the following command will build the binary for your platform:</description>
+Compilation requirements API2HTML is a self-contained binary with no external dependencies. Nevertheless, in order to generate the binary you will need:
+ Go lang (install) make (your operating system usually comes with this)  Installation Once you have the source code, you need to compile it from the terminal.</description>
     </item>
     
     <item>
@@ -39,8 +39,7 @@ make prepare  The previous command will download all the necessary dependencies.
       <pubDate>Mon, 12 Feb 2018 12:20:00 +0100</pubDate>
       
       <guid>/docs/running-the-server/</guid>
-      <description>In order to start the API2HTML server you will need to provide the configuration file that defines the website you want to run. As the configuration file references the location of the mustache templates you will need to have them in the disc too. We will use the blog example provided in the source code.
-Pick a project As we said, we will use the blog example provided in the source code.</description>
+      <description>API2HTML needs a configuration file in json format with the definition of the service you want to start. As the configuration file declares what templates are loaded in every page, you will need to have these templates in a folder too. The easiest way to get started is using the blog example provided in the source code under examples/blog. Here you have all the files to run your first site.</description>
     </item>
     
     <item>
