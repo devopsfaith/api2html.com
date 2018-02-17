@@ -186,7 +186,9 @@
 
 <h3 id="2-write-a-template">2) Write a template</h3>
 
-<p>Every page displays the HTML defined in the <code>Template</code>. But instead of writing the whole HTML for every page, you can reuse a <code>Layout</code> so you can write only the changing part. The <code>Layout</code> is where you usually put the header, footer, meta and other content that repeats itself in structure in every page. The <code>Template</code> on the other hand declares what is unique to that page only.</p>
+<p>Every page displays the HTML defined in the <code>Template</code>. You can also reuse a <code>Layout</code> so you can write only the changing part. The <code>Layout</code> is where you usually put the header, footer, meta and other content that repeats itself in structure in every page. The <code>Template</code> on the other hand declares what is unique to that page only.</p>
+
+<p>We recommend you using the <a href="/docs/generator/">generator</a> instead of layouts, as the layout is computed in every execution. When you use the generator you can generate the final HTML file before the server is started and no computation will be needed during the serving stage.</p>
 
 <p>Both the <code>Template</code> and the <code>Layout</code> fields in every page are not filenames, but a reference to the <code>templates</code> and <code>layouts</code> declaration in the same configuration file.</p>
 
@@ -208,7 +210,7 @@
 
 <p>Now in the template file use <code>{{ Data }}</code> (when API response is an object) or <code>{{ Array }}</code> (when API response is an array) to insert the API data the way you like it more.</p>
 
-<p><a href="/docs/templates">More on templates</a></p>
+<p><a href="/docs/templates">More on templates and layouts</a></p>
 
 <h3 id="3-define-the-external-api-call">3) Define the external API call</h3>
 

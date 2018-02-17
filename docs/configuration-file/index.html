@@ -149,6 +149,7 @@
 <ul>
 <li><a href="#root-attributes">Root attributes</a></li>
 <li><a href="#page-object">Page object</a></li>
+<li><a href="#declare-pages-in-the-right-order">Declare pages in the right order</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -221,10 +222,20 @@
 
 <p><code>name</code>: A friendly identifier for your page. Letters only, no spaces.
 <code>URLPattern</code>: The URL where API2HTML will listen. You can use variables using colons ( <code>:var</code>)
-<code>BackendURLPattern</code>: The API call that will be executed and injected inside the <code>{{ data }}</code> variable. You can use the variables declared in URLPattern
+<code>BackendURLPattern</code>: The API call that will be executed and injected inside the <code>{{ Data }}</code> variable. You can use the variables declared in URLPattern
 <code>Template</code>: The template name as defined in the <code>templates</code> attribute
 <code>Layout</code>: The layout that will encapsulate the template, as defined in the <code>layouts</code> attribute.
 <code>CacheTTL</code> (string): Time a successful response from the API will be cached for. Use <code>s</code> for seconds, <code>h</code> hours, <code>m</code> for minutes. E.g: <code>4h</code></p>
+
+<h2 id="declare-pages-in-the-right-order">Declare pages in the right order</h2>
+
+<p>The order of appearance of the pages is very important, as if you have conflicting routes the behavior might not be the one you expect. When handling routes that share a part of the pattern, always declare the most specific case first and go down to the most generalist. E.g:</p>
+
+<pre><code>/posts/:postid/detail
+/posts/:postid
+/posts
+/
+</code></pre>
 
 
       

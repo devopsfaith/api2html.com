@@ -173,34 +173,36 @@
     ...
 </code></pre>
 
-<p>API2HTML will take it from here and will serve pages like <code>/post/23</code>, calling the defined backend API and injecting the data in the <code>post</code> template. Your only work is to write a nice <code>post</code> template and associate it a little bit of styling. As you can see API2HTML <strong>does not require controllers or models</strong> as all the data is provided by external resources.</p>
+<p>API2HTML will take it from here and will serve pages like <code>/post/23</code>, calling the defined backend API and injecting the data in the <code>post</code> template. Your only work is to write a nice <code>post</code> template and associate it a little bit of styling.</p>
 
 <p>API2HTML does <strong>server-side rendering</strong> meaning that is perfect to have a SEO site and maintaining only an API.</p>
+
+<p>As you can see API2HTML is a simplification of the MVC model: You have the controller totally parametrized in the configuration file and the model is deducted from the API response and enriched with any fields you add in the <code>extra</code>configuration section.</p>
 
 <p>This overview is a simplification of what API2HTML can do for you as the server can provide you with base layouts, multi-site generation, caching and other interesting features that make it very powerful.</p>
 
 <h2 id="what-do-i-need-to-code-learn">What do I need to code/learn?</h2>
 
-<p><strong>HTML</strong>. If you wanted a challenge, keep looking.</p>
+<p>If you are familiar with<strong>HTML</strong>, you are almost ready to go!</p>
 
-<p>API2HTML requires you to write the templates using the <strong>logic-less</strong> template engine <a href="https://mustache.github.io/">mustache</a>. If you are unfamiliar with mustache, don&rsquo;t worry, there&rsquo;s nothing much to learn and is not like learning any of the template engines you might be familiar with. For now, basically know that <code>{{ #data }}</code> is a loop to iterate the API response and that you can access response attributes directly inside, and 2nd level using a dot <code>.</code> separator. Example:</p>
+<p>API2HTML requires you to write the templates using the <strong>logic-less</strong> template engine <a href="https://mustache.github.io/">mustache</a>. If you are unfamiliar with mustache, don&rsquo;t worry, there&rsquo;s nothing much to learn and is not like learning any of the template engines you might be familiar with. For now, basically know that <code>{{ Data }}</code> is the object with the API response that you can access directly using a dot <code>.</code> separator to retrieve its fields. Example:</p>
 
-<pre><code>&lt;h1&gt;Products for sale&lt;/h1&gt;
+<pre><code>&lt;h1&gt;Products for sale in {{ Data.category }}&lt;/h1&gt;
 &lt;table&gt;
     &lt;tr&gt;
         &lt;td&gt;Product&lt;/td&gt;
         &lt;td&gt;Price&lt;/td&gt;
     &lt;tr&gt;
-{{#data}}
+{{#Data.products}}
     &lt;tr&gt;
         &lt;td&gt;&lt;a href=&quot;/product/{{name}}&quot;&gt;{{title}}&lt;/a&gt;&lt;/td&gt;
         &lt;td&gt;{{price.amount}} {{price.currency}}&lt;/td&gt;
     &lt;/tr&gt;
-{{/data}}
+{{/Data.products}}
 
-{{^data}}
+{{^Data.products}}
     &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;Sorry, there are no products in this category :(&lt;/td&gt;&lt;/tr&gt;
-{{/data}}
+{{/Data.products}}
 &lt;/table&gt;
 </code></pre>
 
