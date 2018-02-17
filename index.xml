@@ -17,8 +17,8 @@
       <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
       
       <guid>/docs/overview/</guid>
-      <description>API2HTML is a dynamic website builder that only requires you to code HTML templates focusing on the view. At the same time API2HTML will inject data from external API resources into these views. The template engine used to render the templates is the logic-less template engine mustache.
-API2HTML requires no controllers or models as all the data is provided by external resources. To do so, the application uses a configuration.json file that simply defines the mapping between URLs, templates and API calls.</description>
+      <description>How API2HTML works? To create a new site just define in a configuration .json file all the pages you want to serve (URL patterns) along with its associated view (template) and external API call where the data is (backend). In a nutshell you create a json file similar to this:
+&amp;quot;pages&amp;quot;:[ { &amp;quot;URLPattern&amp;quot;: &amp;quot;/posts/:post_id&amp;quot;, &amp;quot;BackendURLPattern&amp;quot;: &amp;quot;https://jsonplaceholder.typicode.com/posts/:post_id&amp;quot;, &amp;quot;Template&amp;quot;: &amp;quot;post&amp;quot;, ...  API2HTML will take it from here and will serve pages like /post/23, calling the defined backend API and injecting the data in the post template.</description>
     </item>
     
     <item>
@@ -34,12 +34,22 @@ Compilation requirements API2HTML is a self-contained binary with no external de
     </item>
     
     <item>
-      <title>Running the API2HTML server</title>
+      <title>Running the server</title>
       <link>/docs/running-the-server/</link>
       <pubDate>Mon, 12 Feb 2018 12:20:00 +0100</pubDate>
       
       <guid>/docs/running-the-server/</guid>
       <description>API2HTML needs a configuration file in json format with the definition of the service you want to start. As the configuration file declares what templates are loaded in every page, you will need to have these templates in a folder too. The easiest way to get started is using the blog example provided in the source code under examples/blog. Here you have all the files to run your first site.</description>
+    </item>
+    
+    <item>
+      <title>Creating your first site</title>
+      <link>/docs/creating-your-first-site/</link>
+      <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
+      
+      <guid>/docs/creating-your-first-site/</guid>
+      <description>Before understanding all the options and capabilities of the tool let&amp;rsquo;s have a quick look to the workflow involved in creating a new site. Let&amp;rsquo;s keep using the blog example as the base to construct a new site:
+1) Define the page route Decide what are the pages that you want to serve and type the URL directly in the URLPattern field. You can use any :variables you want here.</description>
     </item>
     
     <item>
@@ -58,10 +68,8 @@ Compilation requirements API2HTML is a self-contained binary with no external de
       <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
       
       <guid>/docs/templates/</guid>
-      <description>If you are not familiar with Mustache, we recommend start reading the super simple Mustache&amp;rsquo;s syntax and build templates. Here is a basic example:
-template.mustache
-&amp;lt;h1&amp;gt;{{header}}&amp;lt;/h1&amp;gt; {{#bug}} {{/bug}} {{#items}} {{#first}} &amp;lt;li&amp;gt;&amp;lt;strong&amp;gt;{{name}}&amp;lt;/strong&amp;gt;&amp;lt;/li&amp;gt; {{/first}} {{#link}} &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;{{url}}&amp;quot;&amp;gt;{{name}}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; {{/link}} {{/items}} {{#empty}} &amp;lt;p&amp;gt;The list is empty.&amp;lt;/p&amp;gt; {{/empty}}  With the data
-{ &amp;quot;header&amp;quot;: &amp;quot;Colors&amp;quot;, &amp;quot;items&amp;quot;: [ {&amp;quot;name&amp;quot;: &amp;quot;red&amp;quot;, &amp;quot;first&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Red&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;green&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Green&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;blue&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Blue&amp;quot;} ], &amp;quot;empty&amp;quot;: false }  Produces the following HTML when rendered:</description>
+      <description>The templates are the essential part of API2HTML as they are the only thing you need to code to make your site. All the templates are expected to be mustache templates. In the examples we use the extension .mustache but it is up to you the extension you want to use (or none), even .html, as long as you declare the filename in the templates section.
+Template vs Layout A template and a layout are in essence the same thing: HTML content that will be loaded in the page.</description>
     </item>
     
     <item>
@@ -96,6 +104,16 @@ $ api2html generate -h Generate the final api2html templates. Usage: api2html ge
     </item>
     
     <item>
+      <title>Customizing errors</title>
+      <link>/docs/customizing-errors/</link>
+      <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
+      
+      <guid>/docs/customizing-errors/</guid>
+      <description>When you start the server and the errors are not yet customized you will see the following messages in the console:
+reading ./static/500 : open ./static/500: no such file or directory reading ./static/404 : open ./static/404: no such file or directory reading ./static/405 : open ./static/405: no such file or directory  This message is just informing you that whenever an HTTP error 500, 404 or 405 is raised the user will just see a message in plain text, similar to this:</description>
+    </item>
+    
+    <item>
       <title>Common problems</title>
       <link>/docs/common-problems/</link>
       <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
@@ -105,16 +123,6 @@ $ api2html generate -h Generate the final api2html templates. Usage: api2html ge
 The API2HTML server returns a 500 error for a request and logs messages like these ones
 Error #01: json: cannot unmarshal object into Go value of type []map[string]interface {} Error #01: json: cannot unmarshal array into Go value of type map[string]interface {}  Diagnosis
 Your configuration is not properly defining the expected type of result it should get from the backend.</description>
-    </item>
-    
-    <item>
-      <title>Customizing errors</title>
-      <link>/docs/customizing-errors/</link>
-      <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
-      
-      <guid>/docs/customizing-errors/</guid>
-      <description>When you start the server and the errors are not yet customized you will see the following messages in the console:
-reading ./static/500 : open ./static/500: no such file or directory reading ./static/404 : open ./static/404: no such file or directory reading ./static/405 : open ./static/405: no such file or directory  This message is just informing you that whenever an HTTP error 500, 404 or 405 is raised the user will just see a message in plain text, similar to this:</description>
     </item>
     
   </channel>

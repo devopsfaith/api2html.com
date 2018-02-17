@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.36" />
-  <title> Common problems  | API2HTML</title>
+  <title> Creating your first site  | API2HTML</title>
   
-  <meta name="description" content="Common problems using API2HTML"> 
+  <meta name="description" content="Creating your first API2HTML site"> 
   
   
   
@@ -19,10 +19,10 @@
   <meta name="author" content="Devops Faith">
 
 
-  <meta property="og:title" content="Common problems" />
-<meta property="og:description" content="Common problems using API2HTML" />
+  <meta property="og:title" content="Creating your first site" />
+<meta property="og:description" content="Creating your first API2HTML site" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/common-problems/" />
+<meta property="og:url" content="/docs/creating-your-first-site/" />
 
 
 
@@ -48,7 +48,7 @@
 
   
 
-  <link rel="canonical" href="/docs/common-problems/">  
+  <link rel="canonical" href="/docs/creating-your-first-site/">  
   <link href="/css/custom.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -98,7 +98,7 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link text-white" title="Creating your first API2HTML site" href="/docs/creating-your-first-site/">Creating your first site</a>
+                <a class="nav-link active" title="Creating your first API2HTML site" href="/docs/creating-your-first-site/">Creating your first site</a>
             </li>
             
             <li class="nav-item">
@@ -126,7 +126,7 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link active" title="Common problems using API2HTML" href="/docs/common-problems/">Common problems</a>
+                <a class="nav-link text-white" title="Common problems using API2HTML" href="/docs/common-problems/">Common problems</a>
             </li>
             
         </ul>
@@ -147,8 +147,13 @@
 <ul>
 <li>
 <ul>
-<li><a href="#the-server-returns-a-500-error-for-some-endpoints">The server returns a 500 error for some endpoints</a></li>
-<li><a href="#the-service-does-not-start">The service does not start</a></li>
+<li>
+<ul>
+<li><a href="#1-define-the-page-route">1) Define the page route</a></li>
+<li><a href="#2-write-a-template">2) Write a template</a></li>
+<li><a href="#3-define-the-external-api-call">3) Define the external API call</a></li>
+<li><a href="#4-start-the-server">4) Start the server</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -156,58 +161,86 @@
       </div>
 
       
-      <h1>Common problems</h1>
-      <p class="lead mb-4">Some of the problems you might see when the configuration of API2HTML is not the one expected.. </p>
+      <h1>Creating your first site</h1>
+      <p class="lead mb-4">A simple workflow to create new sites. </p>
 
       
 
-<h2 id="the-server-returns-a-500-error-for-some-endpoints">The server returns a 500 error for some endpoints</h2>
+<p>Before understanding all the options and capabilities of the tool let&rsquo;s have a quick look to the workflow involved in creating a new site. Let&rsquo;s keep using the <a href="/docs/running-the-server/">blog example</a> as the base to construct a new site:</p>
 
-<p><strong>Symptoms</strong></p>
+<p><img alt="How it works" src="/img/api2html-how-it-works.png" class="img-fluid my-5" /></p>
 
-<p>The API2HTML server returns a 500 error for a request and logs messages like these ones</p>
+<h3 id="1-define-the-page-route">1) Define the page route</h3>
 
-<pre><code>Error #01: json: cannot unmarshal object into Go value of type []map[string]interface {}
-Error #01: json: cannot unmarshal array into Go value of type map[string]interface {}
+<p>Decide what are the pages that you want to serve and type the URL directly in the <code>URLPattern</code> field. You can use any <code>:variables</code> you want here. These variables will be available for the API call</p>
+
+<p>For instance, define the homepage like this:</p>
+
+<p><code>&quot;URLPattern&quot;: &quot;/&quot;</code></p>
+
+<p>Or the post page like this:</p>
+
+<p><code>&quot;URLPattern&quot;: &quot;/posts/:post&quot;</code></p>
+
+<p>This will serve URLs like <code>/posts/34</code> or <code>/posts/my-new-post</code></p>
+
+<h3 id="2-write-a-template">2) Write a template</h3>
+
+<p>Every page displays the HTML defined in the <code>Template</code>. But instead of writing the whole HTML for every page, you can reuse a <code>Layout</code> so you can write only the changing part. The <code>Layout</code> is where you usually put the header, footer, meta and other content that repeats itself in structure in every page. The <code>Template</code> on the other hand declares what is unique to that page only.</p>
+
+<p>Both the <code>Template</code> and the <code>Layout</code> fields in every page are not filenames, but a reference to the <code>templates</code> and <code>layouts</code> declaration in the same configuration file.</p>
+
+<p>For instance:</p>
+
+<pre><code>&quot;pages&quot;:[
+{
+  ...
+  &quot;Template&quot;: &quot;post&quot;,
+  &quot;Layout&quot;: &quot;main&quot;,
+},
+...
+    ],
+&quot;templates&quot;: { &quot;post&quot;:&quot;post.mustache&quot; },
+&quot;layouts&quot;: { &quot;main&quot;:&quot;main_layout.mustache&quot; },
 </code></pre>
 
-<p><strong>Diagnosis</strong></p>
+<p>The <code>&quot;Template&quot;: &quot;post&quot;</code> references the template file <code>post.mustache</code>.</p>
 
-<p>Your configuration is not properly defining the expected type of result it should get from the backend.</p>
+<p>Now in the template file use <code>{{ Data }}</code> (when API response is an object) or <code>{{ Array }}</code> (when API response is an array) to insert the API data the way you like it more.</p>
 
-<p><strong>Solution</strong></p>
+<p><a href="/docs/templates">More on templates</a></p>
 
-<p>Fix the <code>IsArray</code> value of the configuration. Use <code>IsArray:true</code> if the expected response is an Array. If it is an Object, remove the setting.</p>
+<h3 id="3-define-the-external-api-call">3) Define the external API call</h3>
 
-<h2 id="the-service-does-not-start">The service does not start</h2>
+<p>Write in the <code>BackendURLPattern</code> the API call you want to make to retrieve the content and insert it in the template. For the posts page example, let&rsquo;s say our API is:</p>
 
-<p><strong>Symptoms</strong></p>
-
-<p>The API2HTML server does not start and you are getting error messages like the following ones</p>
-
-<pre><code>engine creation aborted: invalid character '\n' in string literal
-engine creation aborted: invalid character '&quot;' after object key:value pair
+<pre><code>&quot;BackendURLPattern&quot;: &quot;https://jsonplaceholder.typicode.com/posts/:post&quot;,
 </code></pre>
 
-<p><strong>Diagnosis</strong></p>
+<p>Notice that we are passing the <code>:post</code> variable previously declared in the <code>URLPattern</code></p>
 
-<p>Your configuration file is not a proper JSON.</p>
+<h3 id="4-start-the-server">4) Start the server</h3>
 
-<p><strong>Solution</strong></p>
+<p>Now you can start the server and navigate:</p>
 
-<p>Have you closed the quotes in the configuration file? Is a comma missing? Have you closed the quotes in the configuration file?</p>
+<pre><code>api2html serve -d -c config.json -p 8080
+</code></pre>
 
-<p>The best way to deal with this kind of errors is to check your configuration file with any JSON linter.</p>
+<p>This will start the server in port 8080.</p>
 
 
       
 
     <hr/>
     
+    <p class="float-right">
+        Continue to <a href="/docs/configuration-file/">Configuration file</a> &rarr;
+    </p>
+    
 
     
     <p class="float-left">
-        &larr; Back to <a href="/docs/customizing-errors/">Customizing errors</a>
+        &larr; Back to <a href="/docs/running-the-server/">Running the server</a>
     </p>
     
 

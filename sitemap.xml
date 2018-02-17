@@ -18,6 +18,11 @@
   </url>
   
   <url>
+    <loc>/docs/creating-your-first-site/</loc>
+    <lastmod>2018-02-04T16:43:08+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/docs/configuration-file/</loc>
     <lastmod>2018-02-08T16:35:08+01:00</lastmod>
   </url>
@@ -43,12 +48,12 @@
   </url>
   
   <url>
-    <loc>/docs/common-problems/</loc>
+    <loc>/docs/customizing-errors/</loc>
     <lastmod>2018-02-04T16:43:08+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/docs/customizing-errors/</loc>
+    <loc>/docs/common-problems/</loc>
     <lastmod>2018-02-04T16:43:08+01:00</lastmod>
   </url>
   

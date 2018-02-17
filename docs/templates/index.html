@@ -94,7 +94,11 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link text-white" title="Start the API2HTML server with a sample site" href="/docs/running-the-server/">Running the API2HTML server</a>
+                <a class="nav-link text-white" title="Start the API2HTML server with a sample site" href="/docs/running-the-server/">Running the server</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link text-white" title="Creating your first API2HTML site" href="/docs/creating-your-first-site/">Creating your first site</a>
             </li>
             
             <li class="nav-item">
@@ -118,11 +122,11 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link text-white" title="Common problems using API2HTML" href="/docs/common-problems/">Common problems</a>
+                <a class="nav-link text-white" title="Create custom pages for 404 and similar errors" href="/docs/customizing-errors/">Customizing errors</a>
             </li>
             
             <li class="nav-item">
-                <a class="nav-link text-white" title="Create custom pages for 404 and similar errors" href="/docs/customizing-errors/">Customizing errors</a>
+                <a class="nav-link text-white" title="Common problems using API2HTML" href="/docs/common-problems/">Common problems</a>
             </li>
             
         </ul>
@@ -134,10 +138,116 @@
 
         
         
+        <div class="card mb-4 mx-4 float-md-right bg-dark">
+            <div class="card-header bg-primary">
+              <h5 class="mb-0 text-center">Table of Contents</h5>
+          </div>
+          <div class="card-body">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#template-vs-layout">Template vs Layout</a>
+<ul>
+<li><a href="#working-with-layouts">Working with layouts</a></li>
+<li><a href="#working-with-templates">Working with templates</a></li>
+</ul></li>
+<li><a href="#mustache-syntax-overview">Mustache syntax overview</a></li>
+</ul></li>
+</ul>
+</nav>
+          </div>
+      </div>
+
+      
       <h1>Templates</h1>
       <p class="lead mb-4">API2HTML presents the data by rendering logic-less templates using the Mustache engine.. </p>
 
-      <p>If you are not familiar with Mustache, we recommend start reading the super simple <a href="https://mustache.github.io">Mustache&rsquo;s syntax</a> and build templates. Here is a basic example:</p>
+      
+
+<p>The templates are the essential part of API2HTML as they are the only thing you need to code to make your site. All the templates are expected to be mustache templates. In the examples we use the extension <code>.mustache</code> but it is up to you the extension you want to use (or none), even <code>.html</code>, as long as you declare the filename in the <code>templates</code> section.</p>
+
+<h2 id="template-vs-layout">Template vs Layout</h2>
+
+<p>A template and a layout are in essence the same thing: HTML content that will be loaded in the page.</p>
+
+<p>The difference between the two is that the layout is reused across many pages, while the template is specific to the page you are loading.</p>
+
+<p>A layout usually contains the common elements that are present in every page, such as the navigation bar, a header, footers, meta, DOCTYPE and other &ldquo;surrounding&rdquo; content, and then defines a variable <code>{{{ content }}}</code> that will be replaced with the template.</p>
+
+<h3 id="working-with-layouts">Working with layouts</h3>
+
+<p>When writing a layout you will use the variable <code>{{{ content }}}</code> (note 3 curly braces per side, not 2) to place the template inside.</p>
+
+<p>This is a basic example of how a <code>Layout</code> can look like, let&rsquo;s say we named it <code>default_layout.html</code>:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;{{ Extra.lang }}&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css&quot; integrity=&quot;sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;title&gt;{{ Extra.page_title }}}&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    {{{ content }}}
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>In order to use this layout now in a page you must reference it in the <code>Layout</code> field and also make sure that the <code>layouts</code> sections declares it:</p>
+
+<pre><code>  &quot;pages&quot;:[
+    {
+      ...
+      &quot;Template&quot;: &quot;post&quot;,
+      &quot;Layout&quot;: &quot;default&quot;,
+    },
+    ...
+   ]
+   &quot;layouts&quot;: {
+        &quot;default&quot;:&quot;default_layout.html&quot;
+   }
+</code></pre>
+
+<h3 id="working-with-templates">Working with templates</h3>
+
+<p>As it happens with the layouts, in order to make use of any template you write you need to declare the template both in the page and in the list of available templates:</p>
+
+<pre><code> &quot;pages&quot;:[
+    {
+      ...
+      &quot;Template&quot;: &quot;post&quot;,
+    },
+    ...
+   ]
+   &quot;templates&quot;: {
+        &quot;post&quot;:&quot;single_post.mustache&quot;
+   }
+</code></pre>
+
+<p>When editing the template the following variables are available:</p>
+
+<ul>
+<li><code>{{ Data }}</code>: Contains the response of the API when encapsulated in an object (response starts with <code>{</code>)</li>
+<li><code>{{ Array }}</code>: Contains the response of the API when encapsulated in an array (response starts with <code>[</code>). The configuration page must declare  <code>&quot;IsArray&quot;: true</code>.</li>
+<li><code>{{ Extra }}</code>: Any value declared in the <code>extra</code> section of the configuration page or the site configuration.</li>
+</ul>
+
+<p>In all three cases the attributes the inner values can be accessed with the dot <code>.</code>. For instance, having in the configuration file the following:</p>
+
+<pre><code>{
+    &quot;pages&quot;: [...],
+     &quot;extra&quot;:{
+        &quot;lang&quot;: &quot;en-US&quot;,
+        &quot;copyright&quot;: &quot;© 2018 My Company&quot;
+      }
+</code></pre>
+
+<p>You can use in the templates the variables <code>{{ Extra.lang }}</code> and <code>{{ Extra.copyright }}</code>.</p>
+
+<h2 id="mustache-syntax-overview">Mustache syntax overview</h2>
+
+<p>If you are not familiar with Mustache, we recommend you to start reading the super simple <a href="https://mustache.github.io">Mustache&rsquo;s syntax</a> and build templates. Here is a basic example:</p>
 
 <p><code>template.mustache</code></p>
 
