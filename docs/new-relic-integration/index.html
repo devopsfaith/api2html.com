@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.36.1" />
-  <title> Running the generator  | API2HTML</title>
+  <title> New Relic integration  | API2HTML</title>
   
-  <meta name="description" content="How the generator works"> 
+  <meta name="description" content="New Relic integration for API2HTML"> 
   
   
   
@@ -19,10 +19,10 @@
   <meta name="author" content="Devops Faith">
 
 
-  <meta property="og:title" content="Running the generator" />
-<meta property="og:description" content="How the generator works" />
+  <meta property="og:title" content="New Relic integration" />
+<meta property="og:description" content="New Relic integration for API2HTML" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/running-the-generator/" />
+<meta property="og:url" content="/docs/new-relic-integration/" />
 
 
 
@@ -48,7 +48,7 @@
 
   
 
-  <link rel="canonical" href="/docs/running-the-generator/">  
+  <link rel="canonical" href="/docs/new-relic-integration/">  
   <link href="/css/api2html.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -105,7 +105,7 @@
 
     
     <li class="nav-item">
-        <span class="nav-link parent " href="javascript:;;">
+        <span class="nav-link parent active" href="javascript:;;">
             Server
         </span>
         <ul class="nav flex-column">
@@ -131,7 +131,7 @@
             </li>
         
             <li class="nav-item ml-3">
-                <a class="nav-link children " href="/docs/new-relic-integration/">New Relic integration</a>
+                <a class="nav-link children active" href="/docs/new-relic-integration/">New Relic integration</a>
             </li>
         
         </ul>
@@ -140,7 +140,7 @@
 
     
     <li class="nav-item">
-        <span class="nav-link parent active" href="javascript:;;">
+        <span class="nav-link parent " href="javascript:;;">
             Generator
         </span>
         <ul class="nav flex-column">
@@ -154,7 +154,7 @@
             </li>
         
             <li class="nav-item ml-3">
-                <a class="nav-link children active" href="/docs/running-the-generator/">Running the generator</a>
+                <a class="nav-link children " href="/docs/running-the-generator/">Running the generator</a>
             </li>
         
         </ul>
@@ -197,38 +197,58 @@
     <div class="col-md-9 pl-3">
         
         
-      <h1>Running the generator</h1>
-      <p class="lead mb-4">The generator converts the meta-templates into mustache templates for all the sites you have declared, allowing you to maintain a single code base for all your sites.. </p>
+        <div class="card mb-4 mx-4 float-md-right">
+            <div class="card-header bg-light">
+              <h5 class="mb-0 text-center">Table of Contents</h5>
+          </div>
+          <div class="card-body">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#adding-new-relic">Adding New Relic</a></li>
+<li><a href="#screenshots">Screenshots</a></li>
+</ul></li>
+</ul>
+</nav>
+          </div>
+      </div>
 
-      <p>In order to use the generator the first thing you need to have is the <a href="/docs/generating-multiple-sites/#directory-structure">folder structure</a> expected by the generator.</p>
+      
+      <h1>New Relic integration</h1>
+      <p class="lead mb-4">Add API2HTML monitoring in your New Relic account. </p>
 
-<p>You can see the usage of the command passing the help flag:</p>
+      
 
-<pre><code>$ api2html generate -h
-Generate the final api2html templates.
+<p>The API2HTML integration with New Relic does all the heavy lifting for you. By setting your license key and the name of the application you will be able to see the activity in New Relic.</p>
 
-Usage:
-  api2html generate [flags]
+<p>With the New Relic integration you can:</p>
 
-Aliases:
-  generate, create, new
+<ul>
+<li>Follow the throughput, response times, and errors.</li>
+<li>See the memory usage, garbage collection, and CPU usage.</li>
+<li>Detect change of trends when introducing different backend calls.</li>
+</ul>
 
-Examples:
-api2html generate -i en_US -r partial
+<h2 id="adding-new-relic">Adding New Relic</h2>
 
-Flags:
-  -h, --help          help for generate
-  -i, --iso string    (comma-separated) iso code of the site to create (default &quot;*&quot;)
-  -p, --path string   Base path for the generation (default &quot;/Users/artomb/git/go/src/github.com/devopsfaith/api2html&quot;)
-  -r, --reg string    regex filtering the sources to move to the output folder (default &quot;ignore&quot;)
+<p>Add the following code to your <code>configuration.json</code> file:</p>
+
+<pre><code>&quot;newrelic&quot;: {
+    &quot;app_name&quot;: &quot;my_api2html_site&quot;,
+    &quot;license&quot;: &quot;XXXXXXXXXXXXXXXXXXXXXXXXXX&quot;
+}
 </code></pre>
 
-<p>To generate the <code>output</code> directory with all the generated templates you need to pass the ISO code of the site you want to create. If you want to generate them all at once, use the wildcard <code>*</code>-</p>
+<p>Write inside <code>app_name</code> the name of the application as it will appear in your New Relic dashboard, and the license API KEY.</p>
 
-<pre><code>api2html generate --iso *
-</code></pre>
+<p>Restart the server, and you should start seeing activity in the dashboard quickly.</p>
 
-<p>Now check the <code>output</code> folder.</p>
+<h2 id="screenshots">Screenshots</h2>
+
+<p><img alt="How it works" src="/img/new-relic-app-performance.png" class="img-thumbnail img-fluid my-3" />
+<img alt="How it works" src="/img/new-relic-transactions.png" class="img-thumbnail img-fluid my-3" />
+<img alt="How it works" src="/img/new-relic-consumption.png" class="img-thumbnail img-fluid my-3" /></p>
 
 
       
@@ -236,13 +256,13 @@ Flags:
     <hr/>
     
     <p class="float-right">
-        Continue to <a href="/docs/new-relic-integration/">New Relic integration</a> &rarr;
+        Continue to <a href="/docs/customizing-errors/">Customizing errors</a> &rarr;
     </p>
     
 
     
     <p class="float-left">
-        &larr; Back to <a href="/docs/generating-multiple-sites/">Generating multiple sites</a>
+        &larr; Back to <a href="/docs/running-the-generator/">Running the generator</a>
     </p>
     
 

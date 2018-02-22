@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.36.1" />
-  <title> Running the generator  | API2HTML</title>
+  <title> Mustache templates  | API2HTML</title>
   
-  <meta name="description" content="How the generator works"> 
+  <meta name="description" content="Mustache templates syntax overview"> 
   
   
   
@@ -19,10 +19,10 @@
   <meta name="author" content="Devops Faith">
 
 
-  <meta property="og:title" content="Running the generator" />
-<meta property="og:description" content="How the generator works" />
+  <meta property="og:title" content="Mustache templates" />
+<meta property="og:description" content="Mustache templates syntax overview" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/running-the-generator/" />
+<meta property="og:url" content="/docs/mustache/" />
 
 
 
@@ -48,7 +48,7 @@
 
   
 
-  <link rel="canonical" href="/docs/running-the-generator/">  
+  <link rel="canonical" href="/docs/mustache/">  
   <link href="/css/api2html.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -140,7 +140,7 @@
 
     
     <li class="nav-item">
-        <span class="nav-link parent active" href="javascript:;;">
+        <span class="nav-link parent " href="javascript:;;">
             Generator
         </span>
         <ul class="nav flex-column">
@@ -154,7 +154,7 @@
             </li>
         
             <li class="nav-item ml-3">
-                <a class="nav-link children active" href="/docs/running-the-generator/">Running the generator</a>
+                <a class="nav-link children " href="/docs/running-the-generator/">Running the generator</a>
             </li>
         
         </ul>
@@ -163,13 +163,13 @@
 
     
     <li class="nav-item">
-        <span class="nav-link parent " href="javascript:;;">
+        <span class="nav-link parent active" href="javascript:;;">
             Templating
         </span>
         <ul class="nav flex-column">
         
             <li class="nav-item ml-3">
-                <a class="nav-link children " href="/docs/mustache/">Mustache templates</a>
+                <a class="nav-link children active" href="/docs/mustache/">Mustache templates</a>
             </li>
         
         </ul>
@@ -197,38 +197,53 @@
     <div class="col-md-9 pl-3">
         
         
-      <h1>Running the generator</h1>
-      <p class="lead mb-4">The generator converts the meta-templates into mustache templates for all the sites you have declared, allowing you to maintain a single code base for all your sites.. </p>
+      <h1>Mustache templates</h1>
+      <p class="lead mb-4">Mustache syntax overview. </p>
 
-      <p>In order to use the generator the first thing you need to have is the <a href="/docs/generating-multiple-sites/#directory-structure">folder structure</a> expected by the generator.</p>
+      <p>If you are not familiar with Mustache, we recommend you to start reading the super simple <a href="https://mustache.github.io">Mustache&rsquo;s syntax</a> and build templates. Here is a basic example:</p>
 
-<p>You can see the usage of the command passing the help flag:</p>
+<p><code>template.mustache</code></p>
 
-<pre><code>$ api2html generate -h
-Generate the final api2html templates.
+<pre><code>&lt;h1&gt;{{header}}&lt;/h1&gt;
+{{#bug}}
+{{/bug}}
 
-Usage:
-  api2html generate [flags]
+{{#items}}
+  {{#first}}
+    &lt;li&gt;&lt;strong&gt;{{name}}&lt;/strong&gt;&lt;/li&gt;
+  {{/first}}
+  {{#link}}
+    &lt;li&gt;&lt;a href=&quot;{{url}}&quot;&gt;{{name}}&lt;/a&gt;&lt;/li&gt;
+  {{/link}}
+{{/items}}
 
-Aliases:
-  generate, create, new
-
-Examples:
-api2html generate -i en_US -r partial
-
-Flags:
-  -h, --help          help for generate
-  -i, --iso string    (comma-separated) iso code of the site to create (default &quot;*&quot;)
-  -p, --path string   Base path for the generation (default &quot;/Users/artomb/git/go/src/github.com/devopsfaith/api2html&quot;)
-  -r, --reg string    regex filtering the sources to move to the output folder (default &quot;ignore&quot;)
+{{#empty}}
+  &lt;p&gt;The list is empty.&lt;/p&gt;
+{{/empty}}
 </code></pre>
 
-<p>To generate the <code>output</code> directory with all the generated templates you need to pass the ISO code of the site you want to create. If you want to generate them all at once, use the wildcard <code>*</code>-</p>
+<p>With the data</p>
 
-<pre><code>api2html generate --iso *
+<pre><code>{
+    &quot;header&quot;: &quot;Colors&quot;,
+    &quot;items&quot;: [
+      {&quot;name&quot;: &quot;red&quot;, &quot;first&quot;: true, &quot;url&quot;: &quot;#Red&quot;},
+      {&quot;name&quot;: &quot;green&quot;, &quot;link&quot;: true, &quot;url&quot;: &quot;#Green&quot;},
+      {&quot;name&quot;: &quot;blue&quot;, &quot;link&quot;: true, &quot;url&quot;: &quot;#Blue&quot;}
+    ],
+    &quot;empty&quot;: false
+}
 </code></pre>
 
-<p>Now check the <code>output</code> folder.</p>
+<p>Produces the following HTML when rendered:</p>
+
+<pre><code>&lt;h1&gt;Colors&lt;/h1&gt;
+&lt;li&gt;&lt;strong&gt;red&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#Green&quot;&gt;green&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#Blue&quot;&gt;blue&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+
+<p>Couldn&rsquo;t be more easy!</p>
 
 
       
@@ -236,13 +251,13 @@ Flags:
     <hr/>
     
     <p class="float-right">
-        Continue to <a href="/docs/new-relic-integration/">New Relic integration</a> &rarr;
+        Continue to <a href="/docs/templates/">Templates</a> &rarr;
     </p>
     
 
     
     <p class="float-left">
-        &larr; Back to <a href="/docs/generating-multiple-sites/">Generating multiple sites</a>
+        &larr; Back to <a href="/docs/configuration-file/">Configuration file</a>
     </p>
     
 
