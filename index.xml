@@ -63,18 +63,6 @@ Compilation requirements API2HTML is a self-contained binary with no external de
     </item>
     
     <item>
-      <title>Mustache templates</title>
-      <link>/docs/mustache/</link>
-      <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
-      
-      <guid>/docs/mustache/</guid>
-      <description>If you are not familiar with Mustache, we recommend you to start reading the super simple Mustache&amp;rsquo;s syntax and build templates. Here is a basic example:
-template.mustache
-&amp;lt;h1&amp;gt;{{header}}&amp;lt;/h1&amp;gt; {{#bug}} {{/bug}} {{#items}} {{#first}} &amp;lt;li&amp;gt;&amp;lt;strong&amp;gt;{{name}}&amp;lt;/strong&amp;gt;&amp;lt;/li&amp;gt; {{/first}} {{#link}} &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;{{url}}&amp;quot;&amp;gt;{{name}}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; {{/link}} {{/items}} {{#empty}} &amp;lt;p&amp;gt;The list is empty.&amp;lt;/p&amp;gt; {{/empty}}  With the data
-{ &amp;quot;header&amp;quot;: &amp;quot;Colors&amp;quot;, &amp;quot;items&amp;quot;: [ {&amp;quot;name&amp;quot;: &amp;quot;red&amp;quot;, &amp;quot;first&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Red&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;green&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Green&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;blue&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Blue&amp;quot;} ], &amp;quot;empty&amp;quot;: false }  Produces the following HTML when rendered:</description>
-    </item>
-    
-    <item>
       <title>Templates</title>
       <link>/docs/templates/</link>
       <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
@@ -82,6 +70,27 @@ template.mustache
       <guid>/docs/templates/</guid>
       <description>The templates are the essential part of API2HTML as they are the only thing you need to code to make your site. All the templates are expected to be mustache templates. In the examples we use the extension .mustache but it is up to you the extension you want to use (or none), even .html, as long as you declare the filename in the templates section.
 Template vs Layout A template and a layout are in essence the same thing: HTML content that will be loaded in the page.</description>
+    </item>
+    
+    <item>
+      <title>Customizing errors</title>
+      <link>/docs/customizing-errors/</link>
+      <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
+      
+      <guid>/docs/customizing-errors/</guid>
+      <description>When you start the server and the errors are not yet customized you will see the following messages in the console:
+reading ./static/500 : open ./static/500: no such file or directory reading ./static/404 : open ./static/404: no such file or directory reading ./static/405 : open ./static/405: no such file or directory  This message is just informing you that whenever an HTTP error 500, 404 or 405 is raised the user will just see a message in plain text, similar to this:</description>
+    </item>
+    
+    <item>
+      <title>New Relic integration</title>
+      <link>/docs/new-relic-integration/</link>
+      <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
+      
+      <guid>/docs/new-relic-integration/</guid>
+      <description>The API2HTML integration with New Relic does all the heavy lifting for you. By setting your license key and the name of the application you will be able to see the activity in New Relic.
+With the New Relic integration you can:
+ Follow the throughput, response times, and errors. See the memory usage, garbage collection, and CPU usage. Detect change of trends when introducing different backend calls.  Adding New Relic Add the following code to your configuration.</description>
     </item>
     
     <item>
@@ -116,24 +125,15 @@ $ api2html generate -h Generate the final api2html templates. Usage: api2html ge
     </item>
     
     <item>
-      <title>New Relic integration</title>
-      <link>/docs/new-relic-integration/</link>
+      <title>Mustache templates</title>
+      <link>/docs/mustache/</link>
       <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
       
-      <guid>/docs/new-relic-integration/</guid>
-      <description>The API2HTML integration with New Relic does all the heavy lifting for you. By setting your license key and the name of the application you will be able to see the activity in New Relic.
-With the New Relic integration you can:
- Follow the throughput, response times, and errors. See the memory usage, garbage collection, and CPU usage. Detect change of trends when introducing different backend calls.  Adding New Relic Add the following code to your configuration.</description>
-    </item>
-    
-    <item>
-      <title>Customizing errors</title>
-      <link>/docs/customizing-errors/</link>
-      <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
-      
-      <guid>/docs/customizing-errors/</guid>
-      <description>When you start the server and the errors are not yet customized you will see the following messages in the console:
-reading ./static/500 : open ./static/500: no such file or directory reading ./static/404 : open ./static/404: no such file or directory reading ./static/405 : open ./static/405: no such file or directory  This message is just informing you that whenever an HTTP error 500, 404 or 405 is raised the user will just see a message in plain text, similar to this:</description>
+      <guid>/docs/mustache/</guid>
+      <description>If you are not familiar with Mustache, we recommend you to start reading the super simple Mustache&amp;rsquo;s syntax and build templates. Here is a basic example:
+template.mustache
+&amp;lt;h1&amp;gt;{{header}}&amp;lt;/h1&amp;gt; {{#bug}} {{/bug}} {{#items}} {{#first}} &amp;lt;li&amp;gt;&amp;lt;strong&amp;gt;{{name}}&amp;lt;/strong&amp;gt;&amp;lt;/li&amp;gt; {{/first}} {{#link}} &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;{{url}}&amp;quot;&amp;gt;{{name}}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; {{/link}} {{/items}} {{#empty}} &amp;lt;p&amp;gt;The list is empty.&amp;lt;/p&amp;gt; {{/empty}}  With the data
+{ &amp;quot;header&amp;quot;: &amp;quot;Colors&amp;quot;, &amp;quot;items&amp;quot;: [ {&amp;quot;name&amp;quot;: &amp;quot;red&amp;quot;, &amp;quot;first&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Red&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;green&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Green&amp;quot;}, {&amp;quot;name&amp;quot;: &amp;quot;blue&amp;quot;, &amp;quot;link&amp;quot;: true, &amp;quot;url&amp;quot;: &amp;quot;#Blue&amp;quot;} ], &amp;quot;empty&amp;quot;: false }  Produces the following HTML when rendered:</description>
     </item>
     
     <item>

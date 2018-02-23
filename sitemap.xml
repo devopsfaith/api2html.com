@@ -28,12 +28,17 @@
   </url>
   
   <url>
-    <loc>/docs/mustache/</loc>
+    <loc>/docs/templates/</loc>
     <lastmod>2018-02-08T16:35:08+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/docs/templates/</loc>
+    <loc>/docs/customizing-errors/</loc>
+    <lastmod>2018-02-04T16:43:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/new-relic-integration/</loc>
     <lastmod>2018-02-08T16:35:08+01:00</lastmod>
   </url>
   
@@ -53,13 +58,8 @@
   </url>
   
   <url>
-    <loc>/docs/new-relic-integration/</loc>
+    <loc>/docs/mustache/</loc>
     <lastmod>2018-02-08T16:35:08+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/customizing-errors/</loc>
-    <lastmod>2018-02-04T16:43:08+01:00</lastmod>
   </url>
   
   <url>
