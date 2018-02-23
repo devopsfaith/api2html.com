@@ -206,7 +206,14 @@
 <ul>
 <li>
 <ul>
-<li><a href="#the-server-returns-a-500-error-for-some-endpoints">The server returns a 500 error for some endpoints</a></li>
+<li><a href="#the-server-returns-a-500-error">The server returns a 500 error</a>
+<ul>
+<li>
+<ul>
+<li><a href="#cannot-unmarshal">Cannot unmarshal</a></li>
+<li><a href="#no-rendered-defined">No rendered defined</a></li>
+</ul></li>
+</ul></li>
 <li><a href="#the-service-does-not-start">The service does not start</a></li>
 </ul></li>
 </ul>
@@ -220,11 +227,13 @@
 
       
 
-<h2 id="the-server-returns-a-500-error-for-some-endpoints">The server returns a 500 error for some endpoints</h2>
+<h2 id="the-server-returns-a-500-error">The server returns a 500 error</h2>
+
+<h4 id="cannot-unmarshal">Cannot unmarshal</h4>
 
 <p><strong>Symptoms</strong></p>
 
-<p>The API2HTML server returns a 500 error for a request and logs messages like these ones</p>
+<p>The API2HTML server returns a 500 error for a request and logs messages like these ones:</p>
 
 <pre><code>Error #01: json: cannot unmarshal object into Go value of type []map[string]interface {}
 Error #01: json: cannot unmarshal array into Go value of type map[string]interface {}
@@ -238,11 +247,38 @@ Error #01: json: cannot unmarshal array into Go value of type map[string]interfa
 
 <p>Fix the <code>IsArray</code> value of the configuration. Use <code>IsArray:true</code> if the expected response is an Array. If it is an Object, remove the setting.</p>
 
+<h4 id="no-rendered-defined">No rendered defined</h4>
+
+<p><strong>Symptoms</strong></p>
+
+<p>The API2HTML server returns a 500 error for a request and logs messages like this one:</p>
+
+<pre><code>Error #01: no rendered defined
+</code></pre>
+
+<p><strong>Diagnosis</strong></p>
+
+<p>Your configuration is not properly defining the name of the <code>template</code> that matches the <code>page</code>.</p>
+
+<p><strong>Solution</strong></p>
+
+<p>Configure a <code>template</code> that matches the <code>page</code> name.</p>
+
+<p>Example:</p>
+
+<pre><code>  &quot;pages&quot;:[
+    {
+      &quot;name&quot;: &quot;home&quot;,
+  ...
+  &quot;templates&quot;: {&quot;home&quot;:&quot;home.mustache&quot;}
+  ...
+</code></pre>
+
 <h2 id="the-service-does-not-start">The service does not start</h2>
 
 <p><strong>Symptoms</strong></p>
 
-<p>The API2HTML server does not start and you are getting error messages like the following ones</p>
+<p>The API2HTML server does not start and you are getting error messages like the following ones:</p>
 
 <pre><code>engine creation aborted: invalid character '\n' in string literal
 engine creation aborted: invalid character '&quot;' after object key:value pair

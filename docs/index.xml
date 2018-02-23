@@ -142,8 +142,8 @@ reading ./static/500 : open ./static/500: no such file or directory reading ./st
       <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
       
       <guid>/docs/common-problems/</guid>
-      <description>The server returns a 500 error for some endpoints Symptoms
-The API2HTML server returns a 500 error for a request and logs messages like these ones
+      <description>The server returns a 500 error Cannot unmarshal Symptoms
+The API2HTML server returns a 500 error for a request and logs messages like these ones:
 Error #01: json: cannot unmarshal object into Go value of type []map[string]interface {} Error #01: json: cannot unmarshal array into Go value of type map[string]interface {}  Diagnosis
 Your configuration is not properly defining the expected type of result it should get from the backend.</description>
     </item>
