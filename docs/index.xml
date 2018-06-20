@@ -139,11 +139,21 @@ template.mustache
     <item>
       <title>Hot reload</title>
       <link>/docs/hot-reload/</link>
-      <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
+      <pubDate>Wed, 20 Jun 2018 20:25:08 +0100</pubDate>
       
       <guid>/docs/hot-reload/</guid>
       <description>As API2HTML loads all the templates in-memory during start-up time, changing the content of a template in the disk has no effect in the server. This means that whenever you change the content of a template you need to inform the server that this happened, or restart the server instead.
 While we are in development it is very convenient to have an automated system that applies the changes in the server for us.</description>
+    </item>
+    
+    <item>
+      <title>Debugging</title>
+      <link>/docs/debugging/</link>
+      <pubDate>Wed, 20 Jun 2018 20:25:08 +0100</pubDate>
+      
+      <guid>/docs/debugging/</guid>
+      <description>In addition to see what is going on in the API you are getting the data from, there is a couple of things you can do to have a healthy debugging session.
+Add the debug template API2HTML comes with an internal template that you can reference in any of your templates to see the debug. Only if the server has been started with the -d flag you will be able to see it.</description>
     </item>
     
     <item>
@@ -156,16 +166,6 @@ While we are in development it is very convenient to have an automated system th
 The API2HTML server returns a 500 error for a request and logs messages like these ones:
 Error #01: json: cannot unmarshal object into Go value of type []map[string]interface {} Error #01: json: cannot unmarshal array into Go value of type map[string]interface {}  Diagnosis
 Your configuration is not properly defining the expected type of result it should get from the backend.</description>
-    </item>
-    
-    <item>
-      <title>Debugging</title>
-      <link>/docs/debugging/</link>
-      <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
-      
-      <guid>/docs/debugging/</guid>
-      <description>In addition to see what is going on in the API you are getting the data from, there is a couple of things you can do to have a healthy debugging session.
-Add the debug template API2HTML comes with an internal template that you can reference in any of your templates to see the debug. Only if the server has been started with the -d flag you will be able to see it.</description>
     </item>
     
   </channel>
