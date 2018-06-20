@@ -1,0 +1,33 @@
+documentation
+├── overview
+├── installation
+├── server
+│   ├── overview
+│   ├── getting started
+│   ├── config
+│   ├── backend response
+│   ├── public files
+│   ├── static files
+│   └── templating
+│       ├── template
+│       ├── layout
+│       ├── partial
+│       └── default partials and templates
+├── generator
+│   ├── overview
+│   ├── getting started
+│   ├── config
+│   ├── i18n
+│   ├── sources
+│   │   ├── tmpl
+│   │   ├── static
+│   │   └── other
+│   └── output
+│       ├── tmpl
+│       ├── static
+│       └── other
+└── templating
+    ├── layouts
+    ├── metatemplates
+    ├── mustache
+    └── partials

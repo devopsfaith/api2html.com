@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.36.1" />
+  <meta name="generator" content="Hugo 0.41" />
   <title> Templates  | API2HTML</title>
   
   <meta name="description" content="Write your templates using Mustache engine"> 
@@ -172,6 +172,10 @@
                 <a class="nav-link children " href="/docs/mustache/">Mustache templates</a>
             </li>
         
+            <li class="nav-item ml-3">
+                <a class="nav-link children " href="/docs/hot-reload/">Hot reload</a>
+            </li>
+        
         </ul>
     </li>
     
@@ -185,6 +189,10 @@
         
             <li class="nav-item ml-3">
                 <a class="nav-link children " href="/docs/common-problems/">Common problems</a>
+            </li>
+        
+            <li class="nav-item ml-3">
+                <a class="nav-link children " href="/docs/debugging/">Debugging</a>
             </li>
         
         </ul>
@@ -210,6 +218,7 @@
 <ul>
 <li><a href="#working-with-layouts">Working with layouts</a></li>
 <li><a href="#working-with-templates">Working with templates</a></li>
+<li><a href="#variables-available-in-the-templates">Variables available in the templates</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -283,6 +292,8 @@
    }
 </code></pre>
 
+<h3 id="variables-available-in-the-templates">Variables available in the templates</h3>
+
 <p>When editing the template the following variables are available:</p>
 
 <ul>
@@ -291,17 +302,25 @@
 <li><code>{{ Extra }}</code>: Any value declared in the <code>extra</code> section of the configuration page or the site configuration.</li>
 </ul>
 
-<p>In all three cases the attributes the inner values can be accessed with the dot <code>.</code>. For instance, having in the configuration file the following:</p>
+<p>In all three cases the attributes of the inner values can be accessed with the dot <code>.</code>.</p>
+
+<p>For instance, having in the configuration file the following variables&hellip;</p>
 
 <pre><code>{
     &quot;pages&quot;: [...],
      &quot;extra&quot;:{
         &quot;lang&quot;: &quot;en-US&quot;,
-        &quot;copyright&quot;: &quot;© 2018 My Company&quot;
+        &quot;copyright&quot;: &quot;2018 My Company&quot;
       }
 </code></pre>
 
-<p>You can use in the templates the variables <code>{{ Extra.lang }}</code> and <code>{{ Extra.copyright }}</code>.</p>
+<p>&hellip;then you can use them in the templates as follows:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;{{ Extra.lang }}&quot;&gt;
+...
+&lt;p&gt;&amp;copy; {{ Extra.copyright }}&lt;/p&gt;
+</code></pre>
 
 
       
@@ -370,13 +389,16 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
   
 <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-87994359-2', 'auto');
-ga('send', 'pageview');
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-87994359-2', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>

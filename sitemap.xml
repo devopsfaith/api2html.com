@@ -63,7 +63,17 @@
   </url>
   
   <url>
+    <loc>/docs/hot-reload/</loc>
+    <lastmod>2018-02-08T16:35:08+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/docs/common-problems/</loc>
+    <lastmod>2018-02-04T16:43:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/debugging/</loc>
     <lastmod>2018-02-04T16:43:08+01:00</lastmod>
   </url>
   

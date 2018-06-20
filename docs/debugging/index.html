@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="generator" content="Hugo 0.41" />
-  <title> Configuration file  | API2HTML</title>
+  <title> Debugging  | API2HTML</title>
   
-  <meta name="description" content="Understanding the configuration file"> 
+  <meta name="description" content="API2HTML debugger"> 
   
   
   
@@ -19,28 +19,22 @@
   <meta name="author" content="Devops Faith">
 
 
-  <meta property="og:title" content="Configuration file" />
-<meta property="og:description" content="Understanding the configuration file" />
+  <meta property="og:title" content="Debugging" />
+<meta property="og:description" content="API2HTML debugger" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/configuration-file/" />
+<meta property="og:url" content="/docs/debugging/" />
 
 
 
-<meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00"/>
+<meta property="article:published_time" content="2018-02-04T16:43:08&#43;01:00"/>
 
-<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-02-04T16:43:08&#43;01:00"/>
 
 
 
 
 
 
-
-  
 
 
 
@@ -48,7 +42,13 @@
 
   
 
-  <link rel="canonical" href="/docs/configuration-file/">  
+
+
+
+
+  
+
+  <link rel="canonical" href="/docs/debugging/">  
   <link href="/css/api2html.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -105,7 +105,7 @@
 
     
     <li class="nav-item">
-        <span class="nav-link parent active" href="javascript:;;">
+        <span class="nav-link parent " href="javascript:;;">
             Server
         </span>
         <ul class="nav flex-column">
@@ -119,7 +119,7 @@
             </li>
         
             <li class="nav-item ml-3">
-                <a class="nav-link children active" href="/docs/configuration-file/">Configuration file</a>
+                <a class="nav-link children " href="/docs/configuration-file/">Configuration file</a>
             </li>
         
             <li class="nav-item ml-3">
@@ -182,7 +182,7 @@
 
     
     <li class="nav-item">
-        <span class="nav-link parent " href="javascript:;;">
+        <span class="nav-link parent active" href="javascript:;;">
             Troubleshooting
         </span>
         <ul class="nav flex-column">
@@ -192,7 +192,7 @@
             </li>
         
             <li class="nav-item ml-3">
-                <a class="nav-link children " href="/docs/debugging/">Debugging</a>
+                <a class="nav-link children active" href="/docs/debugging/">Debugging</a>
             </li>
         
         </ul>
@@ -214,9 +214,8 @@
 <ul>
 <li>
 <ul>
-<li><a href="#root-attributes">Root attributes</a></li>
-<li><a href="#page-object">Page object</a></li>
-<li><a href="#declare-pages-in-the-right-order">Declare pages in the right order</a></li>
+<li><a href="#add-the-debug-template">Add the debug template</a></li>
+<li><a href="#keep-an-eye-to-the-console">Keep an eye to the console</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -224,99 +223,66 @@
       </div>
 
       
-      <h1>Configuration file</h1>
-      <p class="lead mb-4">Syntax used in the configuration file. </p>
+      <h1>Debugging</h1>
+      <p class="lead mb-4">Drop the debug internal template anywhere to see how data flows. Follow the activity of the console.. </p>
 
       
 
-<p>Let&rsquo;s start with an example and then let&rsquo;s decompose the keys:</p>
+<p>In addition to see what is going on in the API you are getting the data from, there is a couple of things you can do to have a healthy debugging session.</p>
 
-<pre><code>{
-  &quot;robots&quot;: true,
-  &quot;sitemap&quot;: true,
-  &quot;static_txt_content&quot;: [
-    &quot;hello.txt&quot;
-  ],
-  &quot;pages&quot;:[
-    {
-      &quot;name&quot;: &quot;post&quot;,
-      &quot;URLPattern&quot;: &quot;/posts/:post&quot;,
-      &quot;BackendURLPattern&quot;: &quot;https://jsonplaceholder.typicode.com/posts/:post&quot;,
-      &quot;Template&quot;: &quot;post&quot;,
-      &quot;Layout&quot;: &quot;main&quot;,
-      &quot;CacheTTL&quot;: &quot;3600s&quot;
-    },
-    {
-      &quot;name&quot;: &quot;home&quot;,
-      &quot;URLPattern&quot;: &quot;/&quot;,
-      &quot;BackendURLPattern&quot;: &quot;https://jsonplaceholder.typicode.com/posts&quot;,
-      &quot;Template&quot;: &quot;home&quot;,
-      &quot;Layout&quot;: &quot;main&quot;,
-      &quot;CacheTTL&quot;: &quot;3600s&quot;,
-      &quot;IsArray&quot;: true,
-      &quot;extra&quot;: {&quot;is_home&quot;:true }
-    }
-  ],
-  &quot;templates&quot;: {&quot;home&quot;:&quot;home.mustache&quot;,&quot;post&quot;:&quot;post.mustache&quot;},
-  &quot;layouts&quot;: {&quot;main&quot;:&quot;main_layout.mustache&quot;},
-  &quot;extra&quot;:{
-    &quot;lang&quot;: &quot;en-US&quot;,
-    &quot;copyright&quot;: &quot;© 2018 My Company&quot;
-  },
-  &quot;public_folder&quot;: {
-    &quot;path_to_folder&quot;: &quot;./public&quot;,
-    &quot;url_prefix&quot;: &quot;/&quot;
-  }
-}
+<h2 id="add-the-debug-template">Add the debug template</h2>
+
+<p>API2HTML comes with an internal template that you can reference in any of your templates to see the debug. Only if the server has been started with the <code>-d</code> flag you will be able to see it. Try it now:</p>
+
+<pre><code>{{ &gt;api2html/debug }}
 </code></pre>
 
-<h2 id="root-attributes">Root attributes</h2>
+<p>Save your template with this new line and restart the service. The debug will show you all the information related to:</p>
 
 <ul>
-<li><code>robots</code> (boolean): When set to true automatically creates the route <code>/robots.txt</code> using the static file with the same name.</li>
-<li><code>sitemap</code> (boolean): When set to true automatically creates the route <code>/sitemaps.xml</code> using the static file with the same name.</li>
-<li><code>static_txt_content</code> (list): Static content that will be served when present in the <code>static</code> folder.</li>
-<li><code>pages</code> (list): List of page objects that API2HTML will process and render</li>
-<li><code>templates</code> (key-value): List of template names and filename. The name is used in the page definition and the value is the relative path to the file.</li>
-<li><code>layouts</code> (key-value): List of layouts available names and filename. The layout loads the surrounding content so you only need to declare the inner content in each template. Layouts usually contain headers, footers and similar content.</li>
-<li><code>extra</code>(key-value): List of additional variables that will be available across all templates under  <code>{{ extra.key }}</code></li>
-<li><code>public_folder</code> (optional struct): If defined, the files and folders at <code>path_to_folder</code> will be served at the prefix <code>url_prefix</code>.</li>
+<li><strong>Request context</strong></li>
+<li><strong>Backend full response</strong> (both object or array)</li>
+<li><strong>Extra data</strong> available in this route</li>
 </ul>
 
-<h2 id="page-object">Page object</h2>
+<p>In the api2html repository there is also a <a href="https://github.com/devopsfaith/api2html/tree/master/examples/debugger">debugger example</a> that you can try:</p>
 
-<p>When declaring <code>pages</code> in the root the page object accepts the following attributes:</p>
-
-<p><code>name</code>: A friendly identifier for your page. Letters only, no spaces.
-<code>URLPattern</code>: The URL where API2HTML will listen. You can use variables using colons ( <code>:var</code>)
-<code>BackendURLPattern</code>: The API call that will be executed and injected inside the <code>{{ Data }}</code> variable. You can use the variables declared in URLPattern
-<code>Template</code>: The template name as defined in the <code>templates</code> attribute
-<code>Layout</code>: The layout that will encapsulate the template, as defined in the <code>layouts</code> attribute.
-<code>CacheTTL</code> (string): Time for the <code>Cache-Control</code> header added to the responses. Use <code>s</code> for seconds, <code>h</code> hours, <code>m</code> for minutes. E.g: <code>4h</code></p>
-
-<h2 id="declare-pages-in-the-right-order">Declare pages in the right order</h2>
-
-<p>The order of appearance of the pages is very important, as if you have conflicting routes the behavior might not be the one you expect. When handling routes that share a part of the pattern, always declare the most specific case first and go down to the most generalist. E.g:</p>
-
-<pre><code>/posts/:postid/detail
-/posts/:postid
-/posts
-/
+<pre><code>cd examples
+api2html serve -d -c config.json -p 8080
 </code></pre>
+
+<h2 id="keep-an-eye-to-the-console">Keep an eye to the console</h2>
+
+<p>Start the server and keep coming back to read the output. This will give you valuable information to understand what is going on. Some of the things you can see in the <em>stdout</em> are:</p>
+
+<ul>
+<li>Known routes
+
+<ul>
+<li>All paths the service knows how to process</li>
+<li>Variables in the route (<code>/route/:var</code>)</li>
+<li>Go handlers for each route</li>
+</ul></li>
+<li>Information about requests and responses
+
+<ul>
+<li>Status codes</li>
+<li>Error messages</li>
+<li>Originating IP</li>
+<li>Methods</li>
+<li>Time to serve</li>
+</ul></li>
+</ul>
 
 
       
 
     <hr/>
     
-    <p class="float-right">
-        Continue to <a href="/docs/templates/">Templates</a> &rarr;
-    </p>
-    
 
     
     <p class="float-left">
-        &larr; Back to <a href="/docs/creating-your-first-site/">Creating your first site</a>
+        &larr; Back to <a href="/docs/common-problems/">Common problems</a>
     </p>
     
 
