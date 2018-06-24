@@ -300,9 +300,10 @@
 <li><code>{{ Data }}</code>: Contains the response of the API when encapsulated in an object (response starts with <code>{</code>)</li>
 <li><code>{{ Array }}</code>: Contains the response of the API when encapsulated in an array (response starts with <code>[</code>). The configuration page must declare  <code>&quot;IsArray&quot;: true</code>.</li>
 <li><code>{{ Extra }}</code>: Any value declared in the <code>extra</code> section of the configuration page or the site configuration.</li>
+<li><code>{{ Params }}</code>: If the URL you are accessing accepted parameters you&rsquo;ll see them here. For instance if you have a page like <code>&quot;URLPattern&quot;: &quot;/archives/:tag&quot;,</code> you will be able to print in the template <code>{{ Params.tag }}</code></li>
 </ul>
 
-<p>In all three cases the attributes of the inner values can be accessed with the dot <code>.</code>.</p>
+<p>In all four cases the attributes of the inner values can be accessed with the dot <code>.</code>.</p>
 
 <p>For instance, having in the configuration file the following variables&hellip;</p>
 
