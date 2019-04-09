@@ -17,8 +17,8 @@
       <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
       
       <guid>/docs/overview/</guid>
-      <description>How API2HTML works? To create a new site just define in a configuration .json file all the pages you want to serve (URL patterns) along with its associated view (template) and external API call where the data is (backend). In a nutshell you create a json file similar to this:
-&amp;quot;pages&amp;quot;:[ { &amp;quot;URLPattern&amp;quot;: &amp;quot;/posts/:post_id&amp;quot;, &amp;quot;BackendURLPattern&amp;quot;: &amp;quot;https://jsonplaceholder.typicode.com/posts/:post_id&amp;quot;, &amp;quot;Template&amp;quot;: &amp;quot;post&amp;quot;, ...  API2HTML will take it from here and will serve pages like /post/23, calling the defined backend API and injecting the data in the post template.</description>
+      <description>How API2HTML works? To create a new site define in a configuration .json file all the pages you want to serve (URL patterns) along with its associated view (template) and external API call where the data is (backend). In a nutshell, you create a json file similar to this:
+&amp;quot;pages&amp;quot;:[ { &amp;quot;URLPattern&amp;quot;: &amp;quot;/posts/:post_id&amp;quot;, &amp;quot;BackendURLPattern&amp;quot;: &amp;quot;https://jsonplaceholder.typicode.com/posts/:post_id&amp;quot;, &amp;quot;Template&amp;quot;: &amp;quot;post&amp;quot;, ...  API2HTML will take it from here and will serve pages like /posts/23, calling the defined backend API and injecting the data in the post template.</description>
     </item>
     
     <item>
@@ -119,7 +119,7 @@ your_project/ ├── config │ ├── ca-ES │ │ ├── config.i
       <pubDate>Thu, 08 Feb 2018 16:35:08 +0100</pubDate>
       
       <guid>/docs/running-the-generator/</guid>
-      <description>In order to use the generator the first thing you need to have is the folder structure expected by the generator.
+      <description>To use the generator, the first thing you need to have is the folder structure expected by the generator.
 You can see the usage of the command passing the help flag:
 $ api2html generate -h Generate the final api2html templates. Usage: api2html generate [flags] Aliases: generate, create, new Examples: api2html generate -i en_US -r partial Flags: -h, --help help for generate -i, --iso string (comma-separated) iso code of the site to create (default &amp;quot;*&amp;quot;) -p, --path string Base path for the generation (default &amp;quot;/Users/artomb/git/go/src/github.</description>
     </item>
