@@ -48,8 +48,8 @@ Compilation requirements API2HTML is a self-contained binary with no external de
       <pubDate>Sun, 04 Feb 2018 16:43:08 +0100</pubDate>
       
       <guid>/docs/creating-your-first-site/</guid>
-      <description>Before understanding all the options and capabilities of the tool let&amp;rsquo;s have a quick look to the workflow involved in creating a new site. Let&amp;rsquo;s keep using the blog example as the base to construct a new site:
-1) Define the page route Decide what are the pages that you want to serve and type the URL directly in the URLPattern field. You can use any :variables you want here.</description>
+      <description>Before understanding all the options and capabilities of the tool let&amp;rsquo;s have a quick look at the workflow involved in creating a new site. Let&amp;rsquo;s keep using the blog example as the base to construct a new site:
+1) Define the page route Decide what the pages that you want to serve and type the URL directly in the URLPattern field are. You can use any :variables you want here.</description>
     </item>
     
     <item>
