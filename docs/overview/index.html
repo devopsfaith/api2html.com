@@ -258,12 +258,16 @@
 &lt;/table&gt;
 </code></pre>
 
-<p>The previous examples does 3 very basic things:</p>
+<p>Notice in this example that&hellip;</p>
 
 <ul>
-<li>Displays the <code>category</code> name by accessing the content in the API through <code>{{ Data.category }}</code></li>
-<li>Loops over all <code>products</code> thanks to <code>{{#Data.products}}</code>. Notice the <code>#</code> indicating the loop.</li>
-<li>Adds a message when the API did not return results, notice <code>^</code> in <code>{{^Data.products}}</code></li>
+<li>It displays the <code>category</code> name by accessing the content in the API through <code>{{ Data.category }}</code></li>
+<li>Loops over all <code>products</code> thanks to <code>{{#Data.products}}</code>. Notice the <code>#</code> indicating the loop.
+
+<ul>
+<li>Inside the loop there are attributes like <code>name</code>, <code>title</code>, <code>amount</code> or <code>currency</code> that are inside the <code>products</code> context and can be referred directly.</li>
+</ul></li>
+<li>It also adds a message when the API did not return results, notice the negation <code>^</code> in <code>{{^Data.products}}</code></li>
 </ul>
 
 <p><a href="/docs/templates">Know more about mustache</a></p>
