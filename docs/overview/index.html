@@ -235,9 +235,9 @@
 
 <h2 id="what-do-i-need-to-code-learn">What do I need to code/learn?</h2>
 
-<p>If you are familiar with<strong>HTML</strong>, you are almost ready to go!</p>
+<p>If you are familiar with <strong>HTML</strong>, you are almost ready to go!</p>
 
-<p>API2HTML requires you to write the templates using the <strong>logic-less</strong> template engine <a href="https://mustache.github.io/">mustache</a>. If you are unfamiliar with mustache, don&rsquo;t worry, there&rsquo;s nothing much to learn and is not like learning any of the template engines you might be familiar with. For now, know that <code>{{ Data }}</code> is the object with the API response and that you can access its fields directly using a dot <code>.</code> separator. Example:</p>
+<p>API2HTML requires you to write the templates using the <strong>logic-less</strong> <a href="https://mustache.github.io/">mustache</a> templating system. If you are unfamiliar with mustache, don&rsquo;t worry, there&rsquo;s nothing much to learn and is not like learning any of the template engines you might be used to. For now, know that <code>{{ Data }}</code> is the object containing the whole API response in the current path, and that you can access its fields directly using a dot <code>.</code> separator. Example:</p>
 
 <pre><code>&lt;h1&gt;Products for sale in {{ Data.category }}&lt;/h1&gt;
 &lt;table&gt;
@@ -257,6 +257,14 @@
 {{/Data.products}}
 &lt;/table&gt;
 </code></pre>
+
+<p>The previous examples does 3 very basic things:</p>
+
+<ul>
+<li>Displays the <code>category</code> name by accessing the content in the API through <code>{{ Data.category }}</code></li>
+<li>Loops over all <code>products</code> thanks to <code>{{#Data.products}}</code>. Notice the <code>#</code> indicating the loop.</li>
+<li>Adds a message when the API did not return results, notice <code>^</code> in <code>{{^Data.products}}</code></li>
+</ul>
 
 <p><a href="/docs/templates">Know more about mustache</a></p>
 
