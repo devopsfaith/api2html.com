@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.82.1" />
   <title> Customizing errors  | API2HTML</title>
   
   <meta name="description" content="Create custom pages for 404 and similar errors"> 
@@ -22,8 +22,10 @@
   <meta property="og:title" content="Customizing errors" />
 <meta property="og:description" content="Create custom pages for 404 and similar errors" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/customizing-errors/" /><meta property="article:published_time" content="2018-02-04T16:43:08&#43;01:00"/>
-<meta property="article:modified_time" content="2018-02-04T16:43:08&#43;01:00"/>
+<meta property="og:url" content="/docs/customizing-errors/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-02-04T16:43:08&#43;01:00" />
+<meta property="article:modified_time" content="2018-02-04T16:43:08&#43;01:00" />
+
 
   
 
@@ -190,23 +192,28 @@
     <div class="col-md-9 pl-3">
         
         
+        <div class="card mb-4 mx-4 float-md-right">
+            <div class="card-header bg-light">
+              <h5 class="mb-0 text-center">Table of Contents</h5>
+          </div>
+          <div class="card-body">
+              <nav id="TableOfContents"></nav>
+          </div>
+      </div>
+
+      
       <h1>Customizing errors</h1>
       <p class="lead mb-4">Create custom pages for certain error types like <strong>404</strong> and make the whole navigation experience consistent. </p>
 
       <p>When you start the server and the errors are not yet customized you will see the following messages in the console:</p>
-
 <pre><code>reading ./static/500 : open ./static/500: no such file or directory
 reading ./static/404 : open ./static/404: no such file or directory
 reading ./static/405 : open ./static/405: no such file or directory
 </code></pre>
-
 <p>This message is just informing you that whenever an HTTP error 500, 404 or 405 is raised the user will just see a message in plain text, similar to this:</p>
-
 <pre><code>404 page not found
 </code></pre>
-
 <p>If you want to show a nicer HTML page consistent with your site, create inside the folder <code>static</code> any or all the following files (without any extension):</p>
-
 <pre><code>- `static/500`: To customize the HTTP 500 error (Internal Server Error).
 - `static/404`: To customize the HTTP 404 error (Page not found).
 - `static/405`: To customize the HTTP 405 error (Method not allowed).
@@ -276,21 +283,15 @@ reading ./static/405 : open ./static/405: no such file or directory
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
   
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-87994359-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZL1F3QN8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-5ZL1F3QN8X');
+  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

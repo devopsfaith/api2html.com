@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.82.1" />
   <title> Generating multiple sites  | API2HTML</title>
   
   <meta name="description" content="An utility to make multiple sites"> 
@@ -22,8 +22,10 @@
   <meta property="og:title" content="Generating multiple sites" />
 <meta property="og:description" content="An utility to make multiple sites" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/generating-multiple-sites/" /><meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00"/>
-<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00"/>
+<meta property="og:url" content="/docs/generating-multiple-sites/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00" />
+<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00" />
+
 
   
 
@@ -196,13 +198,10 @@
           </div>
           <div class="card-body">
               <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#directory-structure">Directory structure</a></li>
-<li><a href="#output-after-running-the-generator">Output after running the generator</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#directory-structure">Directory structure</a></li>
+    <li><a href="#output-after-running-the-generator">Output after running the generator</a></li>
+  </ul>
 </nav>
           </div>
       </div>
@@ -211,12 +210,8 @@
       <h1>Generating multiple sites</h1>
       <p class="lead mb-4">While the mustache templates are rendered in execution time, the generator templates are executed before the server starts and produces all the needed versions of the mustache templates. </p>
 
-      
-
-<h2 id="directory-structure">Directory structure</h2>
-
+      <h2 id="directory-structure">Directory structure</h2>
 <p>The generator needs to have a known folder structure in order to operate properly. Let&rsquo;s see a typical directory structure the generator knows to use:</p>
-
 <pre><code>your_project/
 ├── config
 │   ├── ca-ES
@@ -244,19 +239,14 @@
         └── tmpl
             └── home.mustache
 </code></pre>
-
 <ul>
 <li>The <code>config</code> directory stores all the data that will be injected in the meta-templates.</li>
 <li>The <code>i18n</code> directory stores all the translations</li>
 <li>The <code>sources</code> directory contains all the meta-templates. Notice that there are .txt files, Dockerfile or .json files. These are meta-templates too. (Yes, you can create Dockerfiles by using variables)</li>
 </ul>
-
 <p>Notice that there is a <code>global</code> folder inside <code>sources</code> and <code>config</code>. These files will be present in any language but if a folder with an ISO code declares the same file it will be overwritten, if it is new, it will be added to the language only.</p>
-
 <h2 id="output-after-running-the-generator">Output after running the generator</h2>
-
 <p>After running the generator the following output will be created:</p>
-
 <pre><code>your_project/
 ...
 └── output
@@ -290,7 +280,6 @@
        └── tmpl
            └── home.mustache
 </code></pre>
-
 <p>Now all this files are final templates (and not meta-templates). Notice how the <code>505</code> and <code>1234567890.txt</code> files exist only in the ISO <code>ca-ES</code>.</p>
 
 
@@ -357,21 +346,15 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
   
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-87994359-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZL1F3QN8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-5ZL1F3QN8X');
+  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

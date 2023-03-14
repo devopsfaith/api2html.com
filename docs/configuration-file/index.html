@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.82.1" />
   <title> Configuration file  | API2HTML</title>
   
   <meta name="description" content="Understanding the configuration file"> 
@@ -22,8 +22,10 @@
   <meta property="og:title" content="Configuration file" />
 <meta property="og:description" content="Understanding the configuration file" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/configuration-file/" /><meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00"/>
-<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00"/>
+<meta property="og:url" content="/docs/configuration-file/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00" />
+<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00" />
+
 
   
 
@@ -196,14 +198,11 @@
           </div>
           <div class="card-body">
               <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#root-attributes">Root attributes</a></li>
-<li><a href="#page-object">Page object</a></li>
-<li><a href="#declare-pages-in-the-right-order">Declare pages in the right order</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#root-attributes">Root attributes</a></li>
+    <li><a href="#page-object">Page object</a></li>
+    <li><a href="#declare-pages-in-the-right-order">Declare pages in the right order</a></li>
+  </ul>
 </nav>
           </div>
       </div>
@@ -212,10 +211,7 @@
       <h1>Configuration file</h1>
       <p class="lead mb-4">Syntax used in the configuration file. </p>
 
-      
-
-<p>Let&rsquo;s start with an example and then let&rsquo;s decompose the keys:</p>
-
+      <p>Let&rsquo;s start with an example and then let&rsquo;s decompose the keys:</p>
 <pre><code>{
   &quot;robots&quot;: true,
   &quot;sitemap&quot;: true,
@@ -254,9 +250,7 @@
   }
 }
 </code></pre>
-
 <h2 id="root-attributes">Root attributes</h2>
-
 <ul>
 <li><code>robots</code> (boolean): When set to true automatically creates the route <code>/robots.txt</code> using the static file with the same name.</li>
 <li><code>sitemap</code> (boolean): When set to true automatically creates the route <code>/sitemaps.xml</code> using the static file with the same name.</li>
@@ -267,22 +261,16 @@
 <li><code>extra</code>(key-value): List of additional variables that will be available across all templates under  <code>{{ extra.key }}</code></li>
 <li><code>public_folder</code> (optional struct): If defined, the files and folders at <code>path_to_folder</code> will be served at the prefix <code>url_prefix</code>.</li>
 </ul>
-
 <h2 id="page-object">Page object</h2>
-
 <p>When declaring <code>pages</code> in the root the page object accepts the following attributes:</p>
-
 <p><code>name</code>: A friendly identifier for your page. Letters only, no spaces.
 <code>URLPattern</code>: The URL where API2HTML will listen. You can use variables using colons ( <code>:var</code>)
 <code>BackendURLPattern</code>: The API call that will be executed and injected inside the <code>{{ Data }}</code> variable. You can use the variables declared in URLPattern
 <code>Template</code>: The template name as defined in the <code>templates</code> attribute
 <code>Layout</code>: The layout that will encapsulate the template, as defined in the <code>layouts</code> attribute.
 <code>CacheTTL</code> (string): Time for the <code>Cache-Control</code> header added to the responses. Use <code>s</code> for seconds, <code>h</code> hours, <code>m</code> for minutes. E.g: <code>4h</code></p>
-
 <h2 id="declare-pages-in-the-right-order">Declare pages in the right order</h2>
-
 <p>The order of appearance of the pages is very important, as if you have conflicting routes the behavior might not be the one you expect. When handling routes that share a part of the pattern, always declare the most specific case first and go down to the most generalist. E.g:</p>
-
 <pre><code>/posts/:postid/detail
 /posts/:postid
 /posts
@@ -353,21 +341,15 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
   
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-87994359-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZL1F3QN8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-5ZL1F3QN8X');
+  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

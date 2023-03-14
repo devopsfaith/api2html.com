@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on API2HTML | Convert raw API data into beautiful webpages</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Docs on API2HTML | Convert raw API data into beautiful webpages</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Feb 2018 16:43:08 +0100</lastBuildDate>
-    
-	<atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 20 Jun 2018 20:25:08 +0100</lastBuildDate><atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Overview</title>
       <link>/docs/overview/</link>
@@ -28,9 +24,8 @@
       
       <guid>/docs/getting-started/</guid>
       <description>Download The first thing you need to do is to download or clone the source code of API2HTML.
-Download or clone
-Compilation requirements API2HTML is a self-contained binary with no external dependencies. Nevertheless, in order to generate the binary you will need:
- Go lang (install) make (your operating system usually comes with this)  Installation Once you have the source code, you need to compile it from the terminal.</description>
+Download or cloneCompilation requirements API2HTML is a self-contained binary with no external dependencies. Nevertheless, in order to generate the binary you will need:
+ Go lang (install) make (your operating system usually comes with this)  Installation Once you have the source code, you need to compile it from the terminal. Just cd the directory you have cloned or downloaded and execute:</description>
     </item>
     
     <item>
@@ -49,7 +44,7 @@ Compilation requirements API2HTML is a self-contained binary with no external de
       
       <guid>/docs/creating-your-first-site/</guid>
       <description>Before understanding all the options and capabilities of the tool let&amp;rsquo;s have a quick look at the workflow involved in creating a new site. Let&amp;rsquo;s keep using the blog example as the base to construct a new site:
-1) Define the page route Decide what the pages that you want to serve and type the URL directly in the URLPattern field are. You can use any :variables you want here.</description>
+1) Define the page route Decide what the pages that you want to serve and type the URL directly in the URLPattern field are. You can use any :variables you want here. These variables will be available for the API call</description>
     </item>
     
     <item>

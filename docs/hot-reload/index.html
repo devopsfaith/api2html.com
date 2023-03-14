@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.82.1" />
   <title> Hot reload  | API2HTML</title>
   
   <meta name="description" content="Hot reload of templates"> 
@@ -22,8 +22,10 @@
   <meta property="og:title" content="Hot reload" />
 <meta property="og:description" content="Hot reload of templates" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/hot-reload/" /><meta property="article:published_time" content="2018-06-20T20:25:08&#43;01:00"/>
-<meta property="article:modified_time" content="2018-06-20T20:25:08&#43;01:00"/>
+<meta property="og:url" content="/docs/hot-reload/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-06-20T20:25:08&#43;01:00" />
+<meta property="article:modified_time" content="2018-06-20T20:25:08&#43;01:00" />
+
 
   
 
@@ -196,13 +198,10 @@
           </div>
           <div class="card-body">
               <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#watch-the-files-and-restart-recommended">Watch the files and restart (recommended)</a></li>
-<li><a href="#make-a-put-passing-the-new-content">Make a <code>PUT</code> passing the new content</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#watch-the-files-and-restart-recommended">Watch the files and restart (recommended)</a></li>
+    <li><a href="#make-a-put-passing-the-new-content">Make a <code>PUT</code> passing the new content</a></li>
+  </ul>
 </nav>
           </div>
       </div>
@@ -211,50 +210,31 @@
       <h1>Hot reload</h1>
       <p class="lead mb-4">See changes in the server immediately after you save. </p>
 
-      
-
-<p>As API2HTML loads all the templates <strong>in-memory</strong> during start-up time, changing the content of a template in the disk has no effect in the server. This means that whenever you change the content of a template you need to inform the server that this happened, or restart the server instead.</p>
-
+      <p>As API2HTML loads all the templates <strong>in-memory</strong> during start-up time, changing the content of a template in the disk has no effect in the server. This means that whenever you change the content of a template you need to inform the server that this happened, or restart the server instead.</p>
 <p>While we are in development it is very convenient to have an automated system that applies the changes in the server for us. Some options you might consider:</p>
-
 <h2 id="watch-the-files-and-restart-recommended">Watch the files and restart (recommended)</h2>
-
 <p>You can start the service under the supervision of a watcher, so whenever a file of your interest changes you restart the service without noticing it. We rely on <a href="https://github.com/cespare/reflex">Reflex</a> for this matter, but you can of course use others.</p>
-
 <p>Install reflex with</p>
-
 <pre><code>go get github.com/cespare/reflex
 </code></pre>
-
 <p>And then start the <code>api2html</code> service with reflex:</p>
-
 <pre><code>reflex -r '\.mustache' --start-service -- api2html serve -c config.json
 </code></pre>
-
 <p>Now, whenever a file with the <code>.mustache</code> extension is changed under this directory (or sub-directories) the service will be restarted, applying all the changes.</p>
-
 <p>If you use multiple sites, docker-compose, the <a href="/docs/genereator">generator</a> or any other system that requires additional steps, adjust reflex at your better convenience.</p>
-
 <h2 id="make-a-put-passing-the-new-content">Make a <code>PUT</code> passing the new content</h2>
-
 <p>Another option if you don&rsquo;t want to use reflex, is to make use of the endpoint for <strong>hot reload</strong>. You can call it when the service is running with <code>-d</code> and upload the new template to the server. This call is a <code>PUT</code> to the endpoint:</p>
-
 <pre><code>PUT /template/:templateName
 </code></pre>
-
 <p>And you need to pass:</p>
-
 <ul>
 <li>The <code>:templateName</code> as you have declared it in your config.json, like <code>home</code> in <code>&quot;templates&quot;: {&quot;home&quot;:&quot;home.mustache&quot; }</code></li>
 <li>The <code>file</code>name present in your disk that will be uploaded to the server</li>
 </ul>
-
 <p>For instance, let&rsquo;s update our &ldquo;home&rdquo; (<code>home.mustache</code>):</p>
-
 <pre><code>    $ curl -X PUT -F &quot;file=@home.mustache&quot; -H &quot;Content-Type: multipart/form-data&quot; http://localhost:8080/template/home
     'home' uploaded and stored as [home.mustache]!
 </code></pre>
-
 <p>The command sends the whole file to the service and api2html reloads the template in-memory. You can of course automate this as well.</p>
 
 
@@ -321,21 +301,15 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
   
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-87994359-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZL1F3QN8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-5ZL1F3QN8X');
+  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.82.1" />
   <title> Common problems  | API2HTML</title>
   
   <meta name="description" content="Common problems using API2HTML"> 
@@ -22,8 +22,10 @@
   <meta property="og:title" content="Common problems" />
 <meta property="og:description" content="Common problems using API2HTML" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/common-problems/" /><meta property="article:published_time" content="2018-02-04T16:43:08&#43;01:00"/>
-<meta property="article:modified_time" content="2018-02-04T16:43:08&#43;01:00"/>
+<meta property="og:url" content="/docs/common-problems/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-02-04T16:43:08&#43;01:00" />
+<meta property="article:modified_time" content="2018-02-04T16:43:08&#43;01:00" />
+
 
   
 
@@ -196,21 +198,15 @@
           </div>
           <div class="card-body">
               <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#the-server-returns-a-500-error">The server returns a 500 error</a>
-<ul>
-<li>
-<ul>
-<li><a href="#cannot-unmarshal">Cannot unmarshal</a></li>
-<li><a href="#no-rendered-defined">No rendered defined</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#the-service-does-not-start">The service does not start</a></li>
-<li><a href="#changes-in-the-template-are-not-reflected">Changes in the template are not reflected</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#the-server-returns-a-500-error">The server returns a 500 error</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#the-service-does-not-start">The service does not start</a></li>
+    <li><a href="#changes-in-the-template-are-not-reflected">Changes in the template are not reflected</a></li>
+  </ul>
 </nav>
           </div>
       </div>
@@ -219,87 +215,50 @@
       <h1>Common problems</h1>
       <p class="lead mb-4">Some of the problems you might see when the configuration of API2HTML is not the one expected.. </p>
 
-      
-
-<h2 id="the-server-returns-a-500-error">The server returns a 500 error</h2>
-
+      <h2 id="the-server-returns-a-500-error">The server returns a 500 error</h2>
 <h4 id="cannot-unmarshal">Cannot unmarshal</h4>
-
 <p><strong>Symptoms</strong></p>
-
 <p>The API2HTML server returns a 500 error for a request and logs messages like these ones:</p>
-
 <pre><code>Error #01: json: cannot unmarshal object into Go value of type []map[string]interface {}
 Error #01: json: cannot unmarshal array into Go value of type map[string]interface {}
 </code></pre>
-
 <p><strong>Diagnosis</strong></p>
-
 <p>Your configuration is not properly defining the expected type of result it should get from the backend.</p>
-
 <p><strong>Solution</strong></p>
-
 <p>Fix the <code>IsArray</code> value of the configuration. Use <code>IsArray:true</code> if the expected response is an Array. If it is an Object, remove the setting.</p>
-
 <h4 id="no-rendered-defined">No rendered defined</h4>
-
 <p><strong>Symptoms</strong></p>
-
 <p>The API2HTML server returns a 500 error for a request and logs messages like this one:</p>
-
 <pre><code>Error #01: no rendered defined
 </code></pre>
-
 <p><strong>Diagnosis</strong></p>
-
 <p>Your configuration is not properly defining the name of the <code>template</code> that matches the <code>page</code>.</p>
-
 <p><strong>Solution</strong></p>
-
 <p>Configure a <code>template</code> that matches the <code>page</code> name.</p>
-
 <p>Example:</p>
-
 <pre><code>  &quot;pages&quot;:[
     {
       &quot;name&quot;: &quot;home&quot;,
   ...
   &quot;templates&quot;: {&quot;home&quot;:&quot;home.mustache&quot;}
   ...
-</code></pre>
-
-<h2 id="the-service-does-not-start">The service does not start</h2>
-
+</code></pre><h2 id="the-service-does-not-start">The service does not start</h2>
 <p><strong>Symptoms</strong></p>
-
 <p>The API2HTML server does not start and you are getting error messages like the following ones:</p>
-
 <pre><code>engine creation aborted: invalid character '\n' in string literal
 engine creation aborted: invalid character '&quot;' after object key:value pair
 </code></pre>
-
 <p><strong>Diagnosis</strong></p>
-
 <p>Your configuration file is not a proper JSON.</p>
-
 <p><strong>Solution</strong></p>
-
 <p>Have you closed the quotes in the configuration file? Is a comma missing? Have you closed the quotes in the configuration file?</p>
-
 <p>The best way to deal with this kind of errors is to check your configuration file with any JSON linter.</p>
-
 <h2 id="changes-in-the-template-are-not-reflected">Changes in the template are not reflected</h2>
-
 <p><strong>Symptoms</strong></p>
-
 <p>You saved your template file but you cannot see the changes applied in the web page.</p>
-
 <p><strong>Diagnosis</strong></p>
-
 <p>This is expected. Your templates are compiled at start up time and any content you have in the disk after this won&rsquo;t be checked.</p>
-
 <p><strong>Solution</strong></p>
-
 <p>Restart the service or use the <a href="/docs/hot-reload">hot reload in development</a>.</p>
 
 
@@ -362,21 +321,15 @@ engine creation aborted: invalid character '&quot;' after object key:value pair
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
   
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-87994359-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZL1F3QN8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-5ZL1F3QN8X');
+  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

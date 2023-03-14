@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.82.1" />
   <title> Overview  | API2HTML</title>
   
   <meta name="description" content="What is API2HTML and how can it help"> 
@@ -22,8 +22,10 @@
   <meta property="og:title" content="Overview" />
 <meta property="og:description" content="What is API2HTML and how can it help" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/overview/" /><meta property="article:published_time" content="2018-02-04T16:43:08&#43;01:00"/>
-<meta property="article:modified_time" content="2018-02-04T16:43:08&#43;01:00"/>
+<meta property="og:url" content="/docs/overview/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-02-04T16:43:08&#43;01:00" />
+<meta property="article:modified_time" content="2018-02-04T16:43:08&#43;01:00" />
+
 
   
 
@@ -196,13 +198,10 @@
           </div>
           <div class="card-body">
               <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#how-api2html-works">How API2HTML works?</a></li>
-<li><a href="#what-do-i-need-to-code-learn">What do I need to code/learn?</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#how-api2html-works">How API2HTML works?</a></li>
+    <li><a href="#what-do-i-need-to-codelearn">What do I need to code/learn?</a></li>
+  </ul>
 </nav>
           </div>
       </div>
@@ -211,67 +210,51 @@
       <h1>Overview</h1>
       <p class="lead mb-4">API2HTML is a <strong>dynamic web server</strong> that allows you to create sites by transforming API output into nice HTML. API2HTML retrieves the API responses for you and injects them into the views in a predictable way, allowing you to focus only on how to iterate it and surround it with HTML. </p>
 
-      
-
-<h2 id="how-api2html-works">How API2HTML works?</h2>
-
+      <h2 id="how-api2html-works">How API2HTML works?</h2>
 <p>To create a new site define in a configuration <code>.json</code> file all the pages you want to serve (<strong>URL patterns</strong>) along with its associated view (<strong>template</strong>) and external API call where the data is (<strong>backend</strong>). In a nutshell, you create a json file similar to this:</p>
-
 <pre><code>&quot;pages&quot;:[
     {
-    &quot;URLPattern&quot;: &quot;/posts/:post_id&quot;,
-    &quot;BackendURLPattern&quot;: &quot;https://jsonplaceholder.typicode.com/posts/:post_id&quot;,
-    &quot;Template&quot;: &quot;post&quot;,
-    ...
+	&quot;URLPattern&quot;: &quot;/posts/:post_id&quot;,
+	&quot;BackendURLPattern&quot;: &quot;https://jsonplaceholder.typicode.com/posts/:post_id&quot;,
+	&quot;Template&quot;: &quot;post&quot;,
+	...
 </code></pre>
-
 <p>API2HTML will take it from here and will serve pages like <code>/posts/23</code>, calling the defined backend API and injecting the data in the <code>post</code> template. Your only work is to write a nice <code>post</code> template and associate it a little bit of styling.</p>
-
 <p>API2HTML does <strong>server-side rendering</strong> meaning that is perfect to have an SEO site and maintaining only an API.</p>
-
 <p>As you can see API2HTML is a simplification of the MVC model: You have the controller parametrized in the configuration file and the model is deducted from the API response and enriched with any fields you add in the <code>extra</code> configuration section.</p>
-
 <p>This overview is a simplification of what API2HTML can do for you as the server can provide you with base layouts, multi-site generation, caching and other exciting features that make it very powerful.</p>
-
-<h2 id="what-do-i-need-to-code-learn">What do I need to code/learn?</h2>
-
+<h2 id="what-do-i-need-to-codelearn">What do I need to code/learn?</h2>
 <p>If you are familiar with <strong>HTML</strong>, you are almost ready to go!</p>
-
-<p>API2HTML requires you to write the templates using the <strong>logic-less</strong> <a href="https://mustache.github.io/">mustache</a> templating system. If you are unfamiliar with mustache, don&rsquo;t worry, there&rsquo;s nothing much to learn and is not like learning any of the template engines you might be used to. For now, know that <code>{{ Data }}</code> is the object containing the whole API response in the current path, and that you can access its fields directly using a dot <code>.</code> separator. Example:</p>
-
+<p>API2HTML requires you to write the templates using the <strong>logic-less</strong> <!-- raw HTML omitted -->mustache<!-- raw HTML omitted --> templating system. If you are unfamiliar with mustache, don&rsquo;t worry, there&rsquo;s nothing much to learn and is not like learning any of the template engines you might be used to. For now, know that <code>{{ Data }}</code> is the object containing the whole API response in the current path, and that you can access its fields directly using a dot <code>.</code> separator. Example:</p>
 <pre><code>&lt;h1&gt;Products for sale in {{ Data.category }}&lt;/h1&gt;
 &lt;table&gt;
-    &lt;tr&gt;
+	&lt;tr&gt;
         &lt;td&gt;Product&lt;/td&gt;
         &lt;td&gt;Price&lt;/td&gt;
-    &lt;tr&gt;
+	&lt;tr&gt;
 {{#Data.products}}
-    &lt;tr&gt;
+	&lt;tr&gt;
         &lt;td&gt;&lt;a href=&quot;/product/{{name}}&quot;&gt;{{title}}&lt;/a&gt;&lt;/td&gt;
         &lt;td&gt;{{price.amount}} {{price.currency}}&lt;/td&gt;
-    &lt;/tr&gt;
+	&lt;/tr&gt;
 {{/Data.products}}
 
 {{^Data.products}}
-    &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;Sorry, there are no products in this category :(&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;Sorry, there are no products in this category :(&lt;/td&gt;&lt;/tr&gt;
 {{/Data.products}}
 &lt;/table&gt;
 </code></pre>
-
 <p>Notice in this example that&hellip;</p>
-
 <ul>
 <li>It displays the <code>category</code> name by accessing the content in the API through <code>{{ Data.category }}</code></li>
 <li>Loops over all <code>products</code> thanks to <code>{{#Data.products}}</code>. Notice the <code>#</code> indicating the loop.
-
 <ul>
 <li>Inside the loop there are attributes like <code>name</code>, <code>title</code>, <code>amount</code> or <code>currency</code> that are inside the <code>products</code> context and can be referred directly.</li>
-</ul></li>
+</ul>
+</li>
 <li>It also adds a message when the API did not return results, notice the negation <code>^</code> in <code>{{^Data.products}}</code></li>
 </ul>
-
 <p>Your templates are going to be larger than this, but pretty much you&rsquo;ve seen what you can do with Mustache.</p>
-
 <p>Continue reading on writing API2HTML <a href="/docs/templates">templates</a> or <a href="/docs/mustache">Mustache syntax</a></p>
 
 
@@ -334,21 +317,15 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
   
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-87994359-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZL1F3QN8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-5ZL1F3QN8X');
+  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

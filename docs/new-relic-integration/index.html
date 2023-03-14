@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.82.1" />
   <title> New Relic integration  | API2HTML</title>
   
   <meta name="description" content="New Relic integration for API2HTML"> 
@@ -22,8 +22,10 @@
   <meta property="og:title" content="New Relic integration" />
 <meta property="og:description" content="New Relic integration for API2HTML" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/new-relic-integration/" /><meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00"/>
-<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00"/>
+<meta property="og:url" content="/docs/new-relic-integration/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00" />
+<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00" />
+
 
   
 
@@ -196,13 +198,10 @@
           </div>
           <div class="card-body">
               <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#adding-new-relic">Adding New Relic</a></li>
-<li><a href="#screenshots">Screenshots</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#adding-new-relic">Adding New Relic</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
+  </ul>
 </nav>
           </div>
       </div>
@@ -211,37 +210,26 @@
       <h1>New Relic integration</h1>
       <p class="lead mb-4">Add API2HTML monitoring in your New Relic account. </p>
 
-      
-
-<p>The API2HTML integration with New Relic does all the heavy lifting for you. By setting your license key and the name of the application you will be able to see the activity in New Relic.</p>
-
+      <p>The API2HTML integration with New Relic does all the heavy lifting for you. By setting your license key and the name of the application you will be able to see the activity in New Relic.</p>
 <p>With the New Relic integration you can:</p>
-
 <ul>
 <li>Follow the throughput, response times, and errors.</li>
 <li>See the memory usage, garbage collection, and CPU usage.</li>
 <li>Detect change of trends when introducing different backend calls.</li>
 </ul>
-
 <h2 id="adding-new-relic">Adding New Relic</h2>
-
 <p>Add the following code to your <code>configuration.json</code> file:</p>
-
 <pre><code>&quot;newrelic&quot;: {
-    &quot;app_name&quot;: &quot;my_api2html_site&quot;,
-    &quot;license&quot;: &quot;XXXXXXXXXXXXXXXXXXXXXXXXXX&quot;
+	&quot;app_name&quot;: &quot;my_api2html_site&quot;,
+	&quot;license&quot;: &quot;XXXXXXXXXXXXXXXXXXXXXXXXXX&quot;
 }
 </code></pre>
-
 <p>Write inside <code>app_name</code> the name of the application as it will appear in your New Relic dashboard, and the license API KEY.</p>
-
 <p>Restart the server, and you should start seeing activity in the dashboard quickly.</p>
-
 <h2 id="screenshots">Screenshots</h2>
-
-<p><img alt="How it works" src="/img/new-relic-app-performance.png" class="img-thumbnail img-fluid my-3" />
-<img alt="How it works" src="/img/new-relic-transactions.png" class="img-thumbnail img-fluid my-3" />
-<img alt="How it works" src="/img/new-relic-consumption.png" class="img-thumbnail img-fluid my-3" /></p>
+<p><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
 
 
       
@@ -307,21 +295,15 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
   
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-87994359-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZL1F3QN8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-5ZL1F3QN8X');
+  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

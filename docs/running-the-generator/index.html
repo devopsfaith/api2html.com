@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.82.1" />
   <title> Running the generator  | API2HTML</title>
   
   <meta name="description" content="How the generator works"> 
@@ -22,8 +22,10 @@
   <meta property="og:title" content="Running the generator" />
 <meta property="og:description" content="How the generator works" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/running-the-generator/" /><meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00"/>
-<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00"/>
+<meta property="og:url" content="/docs/running-the-generator/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00" />
+<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00" />
+
 
   
 
@@ -190,13 +192,21 @@
     <div class="col-md-9 pl-3">
         
         
+        <div class="card mb-4 mx-4 float-md-right">
+            <div class="card-header bg-light">
+              <h5 class="mb-0 text-center">Table of Contents</h5>
+          </div>
+          <div class="card-body">
+              <nav id="TableOfContents"></nav>
+          </div>
+      </div>
+
+      
       <h1>Running the generator</h1>
       <p class="lead mb-4">The generator converts the meta-templates into mustache templates for all the sites you have declared, allowing you to maintain a single code base for all your sites.. </p>
 
       <p>To use the generator, the first thing you need to have is the <a href="/docs/generating-multiple-sites/#directory-structure">folder structure</a> expected by the generator.</p>
-
 <p>You can see the usage of the command passing the help flag:</p>
-
 <pre><code>$ api2html generate -h
 Generate the final api2html templates.
 
@@ -215,12 +225,9 @@ Flags:
   -p, --path string   Base path for the generation (default &quot;/Users/artomb/git/go/src/github.com/devopsfaith/api2html&quot;)
   -r, --reg string    regex filtering the sources to move to the output folder (default &quot;ignore&quot;)
 </code></pre>
-
 <p>To generate the <code>output</code> directory with all the generated templates, you need to pass the ISO code of the site you want to create. If you want to generate them all at once, use the wildcard <code>*</code>-</p>
-
 <pre><code>api2html generate --iso *
 </code></pre>
-
 <p>Now check the <code>output</code> folder.</p>
 
 
@@ -287,21 +294,15 @@ Flags:
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
   
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-87994359-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZL1F3QN8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-5ZL1F3QN8X');
+  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

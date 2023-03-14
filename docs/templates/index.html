@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.82.1" />
   <title> Templates  | API2HTML</title>
   
   <meta name="description" content="Write your templates using Mustache engine"> 
@@ -22,8 +22,10 @@
   <meta property="og:title" content="Templates" />
 <meta property="og:description" content="Write your templates using Mustache engine" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/templates/" /><meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00"/>
-<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00"/>
+<meta property="og:url" content="/docs/templates/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-02-08T16:35:08&#43;01:00" />
+<meta property="article:modified_time" content="2018-02-08T16:35:08&#43;01:00" />
+
 
   
 
@@ -196,17 +198,15 @@
           </div>
           <div class="card-body">
               <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#template-vs-layout">Template vs Layout</a>
-<ul>
-<li><a href="#working-with-layouts">Working with layouts</a></li>
-<li><a href="#working-with-templates">Working with templates</a></li>
-<li><a href="#variables-available-in-the-templates">Variables available in the templates</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#template-vs-layout">Template vs Layout</a>
+      <ul>
+        <li><a href="#working-with-layouts">Working with layouts</a></li>
+        <li><a href="#working-with-templates">Working with templates</a></li>
+        <li><a href="#variables-available-in-the-templates">Variables available in the templates</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
           </div>
       </div>
@@ -215,39 +215,27 @@
       <h1>Templates</h1>
       <p class="lead mb-4">API2HTML presents the data by rendering logic-less templates using the Mustache engine. </p>
 
-      
-
-<p>The templates are the essential part of API2HTML as they are the only thing you need to code to make your site. All the templates are expected to be mustache templates. In the examples we use the extension <code>.mustache</code> but it is up to you the extension you want to use (or none), even <code>.html</code>, as long as you declare the filename in the <code>templates</code> section.</p>
-
+      <p>The templates are the essential part of API2HTML as they are the only thing you need to code to make your site. All the templates are expected to be mustache templates. In the examples we use the extension <code>.mustache</code> but it is up to you the extension you want to use (or none), even <code>.html</code>, as long as you declare the filename in the <code>templates</code> section.</p>
 <h2 id="template-vs-layout">Template vs Layout</h2>
-
 <p>A template and a layout are in essence the same thing: HTML content that will be loaded in the page.</p>
-
 <p>The difference between the two is that the layout is reused across many pages, while the template is specific to the page you are loading.</p>
-
 <p>A layout usually contains the common elements that are present in every page, such as the navigation bar, a header, footers, meta, DOCTYPE and other &ldquo;surrounding&rdquo; content, and then defines a variable <code>{{{ content }}}</code> that will be replaced with the template.</p>
-
 <h3 id="working-with-layouts">Working with layouts</h3>
-
 <p>When writing a layout you will use the variable <code>{{{ content }}}</code> (note 3 curly braces per side, not 2) to place the template inside.</p>
-
 <p>This is a basic example of how a <code>Layout</code> can look like, let&rsquo;s say we named it <code>default_layout.html</code>:</p>
-
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;{{ Extra.lang }}&quot;&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css&quot; integrity=&quot;sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm&quot; crossorigin=&quot;anonymous&quot;&gt;
-    &lt;title&gt;{{ Extra.page_title }}}&lt;/title&gt;
+	&lt;meta charset=&quot;utf-8&quot;&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css&quot; integrity=&quot;sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm&quot; crossorigin=&quot;anonymous&quot;&gt;
+	&lt;title&gt;{{ Extra.page_title }}}&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    {{{ content }}}
+	{{{ content }}}
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-
 <p>In order to use this layout now in a page you must reference it in the <code>Layout</code> field and also make sure that the <code>layouts</code> sections declares it:</p>
-
 <pre><code>  &quot;pages&quot;:[
     {
       ...
@@ -260,11 +248,8 @@
         &quot;default&quot;:&quot;default_layout.html&quot;
    }
 </code></pre>
-
 <h3 id="working-with-templates">Working with templates</h3>
-
 <p>As it happens with the layouts, in order to make use of any template you write you need to declare the template both in the page and in the list of available templates:</p>
-
 <pre><code> &quot;pages&quot;:[
     {
       ...
@@ -276,32 +261,24 @@
         &quot;post&quot;:&quot;single_post.mustache&quot;
    }
 </code></pre>
-
 <h3 id="variables-available-in-the-templates">Variables available in the templates</h3>
-
 <p>When editing the template the following variables are available:</p>
-
 <ul>
 <li><code>{{ Data }}</code>: Contains the response of the API when encapsulated in an object (response starts with <code>{</code>)</li>
 <li><code>{{ Array }}</code>: Contains the response of the API when encapsulated in an array (response starts with <code>[</code>). The configuration page must declare  <code>&quot;IsArray&quot;: true</code>.</li>
 <li><code>{{ Extra }}</code>: Any value declared in the <code>extra</code> section of the configuration page or the site configuration.</li>
 <li><code>{{ Params }}</code>: If the URL you are accessing accepted parameters you&rsquo;ll see them here. For instance if you have a page like <code>&quot;URLPattern&quot;: &quot;/archives/:tag&quot;,</code> you will be able to print in the template <code>{{ Params.tag }}</code></li>
 </ul>
-
 <p>In all four cases the attributes of the inner values can be accessed with the dot <code>.</code>.</p>
-
 <p>For instance, having in the configuration file the following variables&hellip;</p>
-
 <pre><code>{
-    &quot;pages&quot;: [...],
+	&quot;pages&quot;: [...],
      &quot;extra&quot;:{
         &quot;lang&quot;: &quot;en-US&quot;,
         &quot;copyright&quot;: &quot;2018 My Company&quot;
       }
 </code></pre>
-
 <p>&hellip;then you can use them in the templates as follows:</p>
-
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;{{ Extra.lang }}&quot;&gt;
 ...
@@ -372,21 +349,15 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
   
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-87994359-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZL1F3QN8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-5ZL1F3QN8X');
+  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

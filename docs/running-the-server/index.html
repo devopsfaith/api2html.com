@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.82.1" />
   <title> Running the server  | API2HTML</title>
   
   <meta name="description" content="Start the API2HTML server with a sample site"> 
@@ -22,8 +22,10 @@
   <meta property="og:title" content="Running the server" />
 <meta property="og:description" content="Start the API2HTML server with a sample site" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/running-the-server/" /><meta property="article:published_time" content="2018-02-12T12:20:00&#43;01:00"/>
-<meta property="article:modified_time" content="2018-02-12T12:20:00&#43;01:00"/>
+<meta property="og:url" content="/docs/running-the-server/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2018-02-12T12:20:00&#43;01:00" />
+<meta property="article:modified_time" content="2018-02-12T12:20:00&#43;01:00" />
+
 
   
 
@@ -196,12 +198,9 @@
           </div>
           <div class="card-body">
               <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#starting-the-server-with-an-example-site">Starting the server with an example site</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#starting-the-server-with-an-example-site">Starting the server with an example site</a></li>
+  </ul>
 </nav>
           </div>
       </div>
@@ -210,22 +209,14 @@
       <h1>Running the server</h1>
       <p class="lead mb-4">Instructions on how to start the API2HTML server to serve an example blog site. </p>
 
-      
-
-<p>API2HTML needs a configuration file in <code>json</code> format with the definition of the service you want to start. As the configuration file declares what templates are loaded in every page, you will need to have these templates in a folder too. The easiest way to get started is using the <a href="https://github.com/devopsfaith/api2html/tree/master/examples/blog">blog example</a> provided in the source code under <code>examples/blog</code>. Here you have all the files to run your first site.</p>
-
+      <p>API2HTML needs a configuration file in <code>json</code> format with the definition of the service you want to start. As the configuration file declares what templates are loaded in every page, you will need to have these templates in a folder too. The easiest way to get started is using the <a href="https://github.com/devopsfaith/api2html/tree/master/examples/blog">blog example</a> provided in the source code under <code>examples/blog</code>. Here you have all the files to run your first site.</p>
 <h2 id="starting-the-server-with-an-example-site">Starting the server with an example site</h2>
-
 <p>As we said, we will use the <strong>blog example</strong> to demonstrate how API2HTML works. The code is provided in the source code. Just do:</p>
-
 <pre><code>cd examples/blog
 api2html serve -d -c config.json -p 8080
 </code></pre>
-
 <p>This will start the server in <a href="http://localhost:8080"><code>http://localhost:8080</code></a>, with a fake blog that is loading data from an external API. The flag <code>-d</code> enables the debug so you can see everything is happening, do not use it in production.</p>
-
 <p>To stop the service just press <code>CTRL-C</code>.</p>
-
 <p>You can use any other example instead of the blog.</p>
 
 
@@ -292,21 +283,15 @@ api2html serve -d -c config.json -p 8080
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87994359-2"></script>
   
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-87994359-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZL1F3QN8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-5ZL1F3QN8X');
+  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
